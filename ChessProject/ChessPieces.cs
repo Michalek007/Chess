@@ -1627,16 +1627,16 @@ namespace ChessProject
             return pieces[1];
         }
 
-        public static bool Sudoku(int x, int y, List<ChessPieces> white, List<ChessPieces> black, Color name)
-        {
-            return false;
-        }
+        //public static bool Sudoku(int x, int y, List<ChessPieces> white, List<ChessPieces> black, Color name)
+        //{
+        //    return false;
+        //}
 
         public bool Mat(int a, int b, ChessPieces check, List<ChessPieces> white, List<ChessPieces> black, Color name)
         {
-            if (ChessPieces.AllowedMovesKing(this.X, this.Y, black, white, ChessPieces.Color.black) == false)
+            if (name == Color.white)
             {
-                if (name == Color.white)
+                if (ChessPieces.AllowedMovesKing(this.X, this.Y, black, white, ChessPieces.Color.black) == false)
                 {
                     for (int i = 0; i < white.Count; i++)
                     {
@@ -1644,18 +1644,29 @@ namespace ChessProject
                         {
                             for (int l = 1; l < 9; l++)
                             {
-                                if (((o == a && l == b) == true || white[i].Cover(o, l, check, this, white, black) == true) && white[i].AllowedMoves(o, l, white, black, ChessPieces.Color.white, 0) == true && white[i].Block(o, l, white, black, ChessPieces.Color.white, 1) == true)
+                                if (white[i].GetType() == typeof(King))
                                 {
-                                    return false;
+                                    if (white[i].AllowedMoves(o, l, white, black, white[0].color, 1) == true && ChessPieces.AllowedMovesKing(o,l, black, white, ChessPieces.Color.black) == true && ChessPieces.AllowedMoves(o, l, white) == true)
+                                    {
+                                        return false;
+                                    }
                                 }
+                                else
+                                {
+                                    if (((o == a && l == b) == true || white[i].Cover(o, l, check, this, white, black) == true) && white[i].AllowedMoves(o, l, white, black, ChessPieces.Color.white, 0) == true && white[i].Block(o, l, white, black, ChessPieces.Color.white, 1) == true)
+                                    {
+                                        return false;
+                                    }
+                                }
+                               
                             }
                         }
                     }
                 }
             }
-            if (ChessPieces.AllowedMovesKing(this.X, this.Y, white, black, ChessPieces.Color.white) == false)
+            if (name == Color.black)
             {
-                if (name == Color.white)
+                if (ChessPieces.AllowedMovesKing(this.X, this.Y, white, black, ChessPieces.Color.white) == false)
                 {
                     for (int i = 0; i < black.Count; i++)
                     {
@@ -1663,15 +1674,30 @@ namespace ChessProject
                         {
                             for (int l = 1; l < 9; l++)
                             {
-                                if (((o == a && l == b) == true || black[i].Cover(o, l, check, this, white, black) == true) && black[i].AllowedMoves(o, l, white, black, name, 0) == true && black[i].Block(o, l, white, black, name, 1) == true)
+                                if (black[i].GetType() == typeof(King))
                                 {
-                                    return false;
-                                }
+                                    if (black[i].AllowedMoves(o, l, white, black, ChessPieces.Color.black, 1) == true && ChessPieces.AllowedMovesKing(o, l, white, black, ChessPieces.Color.white) == true)
+                                    {
+                                        if (ChessPieces.AllowedMoves(o, l, black) == true)
+                                        {
+                                            return false;
+                                        }
+                                    }    
+                                }   
+                                else
+                                {
+                                    if (((o == a && l == b) == true || black[i].Cover(o, l, check, this, white, black) == true) && black[i].AllowedMoves(o, l, white, black, name, 0) == true && black[i].Block(o, l, white, black, name, 1) == true)
+                                    {
+                                        return false;
+                                    }
+                                }                                   
                             }
                         }
                     }
+
                 }
             }
+           
             return true;
 
 
@@ -1775,6 +1801,42 @@ namespace ChessProject
             }
             return 25 + (y-1) * 94 + 10;
 
+        }
+
+        public static string ConvertToLetter(int x)
+        {
+            if (x == 1)
+            {
+                return "A";
+            }
+            else if ( x == 2)
+            {
+                return "B";
+            }
+            else if (x == 3)
+            {
+                return "C";
+            }
+            else if (x == 4)
+            {
+                return "D";
+            }
+            else if (x == 5)
+            {
+                return "E";
+            }
+            else if (x == 6)
+            {
+                return "F";
+            }
+            else if (x == 7)
+            {
+                return "G";
+            }
+            else
+            {
+                return "H";
+            }
         }
 
     }

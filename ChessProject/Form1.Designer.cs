@@ -133,6 +133,8 @@ namespace ChessProject
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -188,7 +190,6 @@ namespace ChessProject
             this.panel3.TabIndex = 67;
             this.panel3.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.panel3.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // panel1
             // 
@@ -200,7 +201,6 @@ namespace ChessProject
             this.panel1.TabIndex = 68;
             this.panel1.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.panel1.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel2
             // 
@@ -212,7 +212,6 @@ namespace ChessProject
             this.panel2.TabIndex = 70;
             this.panel2.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.panel2.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel4
             // 
@@ -235,7 +234,6 @@ namespace ChessProject
             this.panel5.TabIndex = 74;
             this.panel5.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.panel5.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // panel6
             // 
@@ -258,7 +256,6 @@ namespace ChessProject
             this.panel7.TabIndex = 72;
             this.panel7.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.panel7.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
-            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // panel8
             // 
@@ -281,7 +278,6 @@ namespace ChessProject
             this.panel9.TabIndex = 82;
             this.panel9.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.panel9.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
-            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
             // 
             // panel10
             // 
@@ -293,7 +289,6 @@ namespace ChessProject
             this.panel10.TabIndex = 78;
             this.panel10.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.panel10.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
-            this.panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.panel10_Paint);
             // 
             // panel11
             // 
@@ -327,7 +322,6 @@ namespace ChessProject
             this.panel13.TabIndex = 80;
             this.panel13.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.panel13.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
-            this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.panel13_Paint);
             // 
             // panel14
             // 
@@ -394,7 +388,6 @@ namespace ChessProject
             this.panel19.TabIndex = 94;
             this.panel19.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.panel19.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
-            this.panel19.Paint += new System.Windows.Forms.PaintEventHandler(this.panel19_Paint);
             // 
             // panel20
             // 
@@ -406,7 +399,6 @@ namespace ChessProject
             this.panel20.TabIndex = 86;
             this.panel20.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.panel20.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
-            this.panel20.Paint += new System.Windows.Forms.PaintEventHandler(this.panel20_Paint);
             // 
             // panel21
             // 
@@ -462,7 +454,6 @@ namespace ChessProject
             this.panel25.TabIndex = 96;
             this.panel25.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.panel25.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
-            this.panel25.Paint += new System.Windows.Forms.PaintEventHandler(this.panel25_Paint);
             // 
             // panel26
             // 
@@ -474,7 +465,6 @@ namespace ChessProject
             this.panel26.TabIndex = 88;
             this.panel26.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.panel26.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
-            this.panel26.Paint += new System.Windows.Forms.PaintEventHandler(this.panel26_Paint);
             // 
             // panel27
             // 
@@ -530,7 +520,6 @@ namespace ChessProject
             this.panel31.TabIndex = 84;
             this.panel31.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.panel31.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
-            this.panel31.Paint += new System.Windows.Forms.PaintEventHandler(this.panel31_Paint);
             // 
             // panel32
             // 
@@ -575,7 +564,6 @@ namespace ChessProject
             this.panel35.TabIndex = 110;
             this.panel35.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.panel35.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
-            this.panel35.Paint += new System.Windows.Forms.PaintEventHandler(this.panel35_Paint);
             // 
             // panel36
             // 
@@ -587,7 +575,6 @@ namespace ChessProject
             this.panel36.TabIndex = 102;
             this.panel36.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.panel36.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
-            this.panel36.Paint += new System.Windows.Forms.PaintEventHandler(this.panel36_Paint);
             // 
             // panel37
             // 
@@ -709,7 +696,6 @@ namespace ChessProject
             this.panel47.TabIndex = 100;
             this.panel47.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.panel47.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
-            this.panel47.Paint += new System.Windows.Forms.PaintEventHandler(this.panel47_Paint);
             // 
             // panel48
             // 
@@ -754,7 +740,6 @@ namespace ChessProject
             this.panel51.TabIndex = 110;
             this.panel51.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.panel51.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
-            this.panel51.Paint += new System.Windows.Forms.PaintEventHandler(this.panel51_Paint);
             // 
             // panel52
             // 
@@ -766,7 +751,6 @@ namespace ChessProject
             this.panel52.TabIndex = 102;
             this.panel52.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.panel52.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
-            this.panel52.Paint += new System.Windows.Forms.PaintEventHandler(this.panel52_Paint);
             // 
             // panel53
             // 
@@ -888,7 +872,6 @@ namespace ChessProject
             this.panel63.TabIndex = 100;
             this.panel63.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.panel63.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
-            this.panel63.Paint += new System.Windows.Forms.PaintEventHandler(this.panel63_Paint);
             // 
             // panel64
             // 
@@ -1274,12 +1257,34 @@ namespace ChessProject
             this.label7.TabIndex = 152;
             this.label7.Text = "label7";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(852, 725);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(138, 46);
+            this.button1.TabIndex = 153;
+            this.button1.Text = "Reset";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button1_MouseClick);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1020, 725);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(138, 46);
+            this.button2.TabIndex = 154;
+            this.button2.Text = "Zapisz zapis partii";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button2_MouseClick);
+            // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1171, 829);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -1530,6 +1535,8 @@ namespace ChessProject
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

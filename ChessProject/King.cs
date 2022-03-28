@@ -21,11 +21,11 @@ namespace ChessProject
             Box = box;
             if (name == Color.white)
             {
-                Symbol = "  K  ";
+                Symbol = "K";
             }
             else
             {
-                Symbol = "  k  ";
+                Symbol = "k";
             }
         }
         public bool AllowedMoves(int x, int y)

@@ -21,11 +21,11 @@ namespace ChessProject
             Box = box;
             if (name == Color.white)
             {
-                Symbol = "  P  ";
+                Symbol = "P";
             }
             else
             {
-                Symbol = "  p  ";
+                Symbol = "p";
             }
             
         }

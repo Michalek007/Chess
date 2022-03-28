@@ -19,7 +19,7 @@ namespace ChessProject
             Y = y;
             color = name;
             Box = box;
-            Symbol = "  N  ";
+            Symbol = "N";
         }
 
         public bool AllowedMoves(int x, int y)
