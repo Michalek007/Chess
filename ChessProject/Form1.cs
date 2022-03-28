@@ -23,6 +23,11 @@ namespace ChessProject
         {
             InitializeComponent();
             ((Control)pictureBox23).AllowDrop = true;
+            //foreach (Panel p in this)
+            //{
+
+            //}
+
             List<ChessPieces> chessPieces = new List<ChessPieces>()
             {
                 new King(5,1,ChessPieces.Color.white, pictureBox23),
@@ -88,6 +93,11 @@ namespace ChessProject
                 else { black[i].Box.BackColor = Color.LightSteelBlue; }
             }
 
+        }
+
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void Form1_Load(object sender, EventArgs e)

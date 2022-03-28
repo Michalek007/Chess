@@ -1627,6 +1627,56 @@ namespace ChessProject
             return pieces[1];
         }
 
+        public static bool Sudoku(int x, int y, List<ChessPieces> white, List<ChessPieces> black, Color name)
+        {
+            return false;
+        }
+
+        public bool Mat(int a, int b, ChessPieces check, List<ChessPieces> white, List<ChessPieces> black, Color name)
+        {
+            if (ChessPieces.AllowedMovesKing(this.X, this.Y, black, white, ChessPieces.Color.black) == false)
+            {
+                if (name == Color.white)
+                {
+                    for (int i = 0; i < white.Count; i++)
+                    {
+                        for (int o = 1; o < 9; o++)
+                        {
+                            for (int l = 1; l < 9; l++)
+                            {
+                                if (((o == a && l == b) == true || white[i].Cover(o, l, check, this, white, black) == true) && white[i].AllowedMoves(o, l, white, black, ChessPieces.Color.white, 0) == true && white[i].Block(o, l, white, black, ChessPieces.Color.white, 1) == true)
+                                {
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if (ChessPieces.AllowedMovesKing(this.X, this.Y, white, black, ChessPieces.Color.white) == false)
+            {
+                if (name == Color.white)
+                {
+                    for (int i = 0; i < black.Count; i++)
+                    {
+                        for (int o = 1; o < 9; o++)
+                        {
+                            for (int l = 1; l < 9; l++)
+                            {
+                                if (((o == a && l == b) == true || black[i].Cover(o, l, check, this, white, black) == true) && black[i].AllowedMoves(o, l, white, black, name, 0) == true && black[i].Block(o, l, white, black, name, 1) == true)
+                                {
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return true;
+
+
+        }
+
         public static int ConvertX(int x)
         {
             for (int i = 0; i < 8; i++)
