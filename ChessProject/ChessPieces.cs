@@ -1707,7 +1707,7 @@ namespace ChessProject
         {
             for (int i = 0; i < 8; i++)
             {
-                if (x > 50 + i * 99 && x < 50 + 93 + i * 99)
+                if (x > 50 + i * 72 && x < 50 + 72 + i * 72)
                 {
                     return i+1;
                 }
@@ -1720,7 +1720,7 @@ namespace ChessProject
         {
             for (int i = 0; i < 8; i++)
             {
-                if (y > 25 + i * 94 && y < 25 + 88 + i * 94)
+                if (y > 25 + i * 72 && y < 25 + 72 + i * 72)
                 {
                     if (i + 1 == 1)
                     {
@@ -1762,7 +1762,7 @@ namespace ChessProject
 
         public static int Convertx(int x)
         {
-            return 50 + x * 99 + 10;
+            return 50 + x * 72;
 
         }
         public static int Converty(int y)
@@ -1799,7 +1799,7 @@ namespace ChessProject
             {
                 y = 1;
             }
-            return 25 + (y-1) * 94 + 10;
+            return 25 + (y-1) * 72;
 
         }
 

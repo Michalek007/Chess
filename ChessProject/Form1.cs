@@ -78,7 +78,7 @@ namespace ChessProject
             moves = list_moves;
             for (int i = 0; i < white.Count; i++)
             {
-                white[i].Box.Left = ChessPieces.Convertx(white[i].X - 1);
+                white[i].Box.Left = ChessPieces.Convertx(white[i].X -1);
                 white[i].Box.Top = ChessPieces.Converty(white[i].Y);
                 if (white[i].X % 2 != 0 && white[i].Y % 2 == 0 || white[i].X % 2 == 0 && white[i].Y % 2 != 0)
                 {
@@ -88,7 +88,7 @@ namespace ChessProject
             }
             for (int i = 0; i < black.Count; i++)
             {
-                black[i].Box.Left = ChessPieces.Convertx(black[i].X - 1);
+                black[i].Box.Left = ChessPieces.Convertx(black[i].X -1);
                 black[i].Box.Top = ChessPieces.Converty(black[i].Y);
                 if (black[i].X % 2 != 0 && black[i].Y % 2 == 0 || black[i].X % 2 == 0 && black[i].Y % 2 != 0)
                 {
@@ -96,6 +96,7 @@ namespace ChessProject
                 }
                 else { black[i].Box.BackColor = dark; }
             }
+
         }
 
         private void Form1_SizeChanged(object sender, EventArgs e)
@@ -124,10 +125,10 @@ namespace ChessProject
             {
                 for (int o = 0; o < 8; o++)
                 {
-                    if (Cursor.Position.X > 50 + i * 99 && Cursor.Position.X < 50 + 93 + i * 99 && Cursor.Position.Y > 25 + o * 94 && Cursor.Position.Y < 25 + 88 + o * 94)
+                    if (Cursor.Position.X > 50 + i * 72 && Cursor.Position.X < 50 + 66 + i * 72 && Cursor.Position.Y > 25 + o * 72 && Cursor.Position.Y < 25 + 66 + o * 72)
                     {
-                        int x = ChessPieces.ConvertX(50 + i * 99 + 10);
-                        int y = ChessPieces.ConvertY(25 + o * 94 + 10);
+                        int x = ChessPieces.ConvertX(50 + i * 72);
+                        int y = ChessPieces.ConvertY(25 + o * 72);
                         if (turn == 1)
                         {
                             King kingWhite = new King(white[0].X, white[0].Y, ChessPieces.Color.white, pictureBox23);
@@ -145,8 +146,8 @@ namespace ChessProject
                                 {
                                     if (white[0].AllowedMoves(x, y, white, black, white[0].color,1) == true && ChessPieces.AllowedMovesKing(x, y, black, white, ChessPieces.Color.black) == true && ChessPieces.AllowedMoves(x,y,white) == true)
                                     {
-                                        pictureBox23.Top = 25 + o * 94 + 10;
-                                        pictureBox23.Left = 50 + i * 99 + 10;
+                                        white[dragging].Box.Top = 25 + o * 72;
+                                        white[dragging].Box.Left = 50 + i * 72;
                                         white[0].X = x;
                                         white[0].Y = y;
                                         castleW = 1;
@@ -180,9 +181,9 @@ namespace ChessProject
                                     //label6.Text = white[dragging].Block(x, y, white, black, ChessPieces.Color.white, 1).ToString();
                                     if (((x == a && y == b) == true || white[dragging].Cover(x, y, check, kingWhite, white, black) == true) && white[dragging].AllowedMoves(x, y, white, black, ChessPieces.Color.white, 0) == true && white[dragging].Block(x, y, white, black, ChessPieces.Color.white, 1) == true)
                                     {
-                                        
-                                        white[dragging].Box.Top = 25 + o * 94 + 10;
-                                        white[dragging].Box.Left = 50 + i * 99 + 10;
+
+                                        white[dragging].Box.Top = 25 + o * 72;
+                                        white[dragging].Box.Left = 50 + i * 72;
                                         white[dragging].X = x;
                                         white[dragging].Y = y;
                                         if (white[dragging].GetType() == typeof(Pone) && white[dragging].Y == 8)
@@ -228,8 +229,8 @@ namespace ChessProject
                                                 {
                                                     if (white[0].Castle(x, y, white, black, ChessPieces.Color.white) == true)
                                                     {
-                                                        white[0].Box.Top = 25 + o * 94 + 10;
-                                                        white[0].Box.Left = 50 + i * 99 + 10;
+                                                        white[0].Box.Top = 25 + o * 72;
+                                                        white[0].Box.Left = 50 + i * 72;
                                                         white[0].X = x;
                                                         white[0].Y = y;
                                                         castleW = 1;
@@ -239,7 +240,7 @@ namespace ChessProject
                                                         }
                                                         else { white[0].Box.BackColor = dark; }
 
-                                                        white[r].Box.Top = 25 + o * 94 + 10;
+                                                        white[r].Box.Top = 25 + o * 72;
                                                         white[r].Box.Left = 50 + (i - 1) * 99 + 10;
                                                         white[r].X = x - 1;
                                                         white[r].Y = y;
@@ -264,8 +265,8 @@ namespace ChessProject
                                                 {
                                                     if (white[0].CastleL(x, y, white, black, ChessPieces.Color.white) == true)
                                                     {
-                                                        white[0].Box.Top = 25 + o * 94 + 10;
-                                                        white[0].Box.Left = 50 + i * 99 + 10;
+                                                        white[0].Box.Top = 25 + o * 72;
+                                                        white[0].Box.Left = 50 + i * 72;
                                                         white[0].X = x;
                                                         white[0].Y = y;
                                                         castleW = 1;
@@ -275,7 +276,7 @@ namespace ChessProject
                                                         }
                                                         else { white[0].Box.BackColor = dark; }
 
-                                                        white[r].Box.Top = 25 + o * 94 + 10;
+                                                        white[r].Box.Top = 25 + o * 72;
                                                         white[r].Box.Left = 50 + (i + 1) * 99 + 10;
                                                         white[r].X = x + 1;
                                                         white[r].Y = y;
@@ -296,8 +297,8 @@ namespace ChessProject
                                     if (white[0].AllowedMoves(x, y, white, black, white[0].color,1) == true && ChessPieces.AllowedMovesKing(x, y, black, white, ChessPieces.Color.black) == true && ChessPieces.AllowedMoves(x, y, white) == true)
                                     {
                                         
-                                        pictureBox23.Top = 25 + o * 94 + 10;
-                                        pictureBox23.Left = 50 + i * 99 + 10;
+                                        pictureBox23.Top = 25 + o * 72;
+                                        pictureBox23.Left = 50 + i * 72;
                                         white[0].X = x;
                                         white[0].Y = y;
                                         castleW = 1;
@@ -328,8 +329,8 @@ namespace ChessProject
                                     {
                                         if (ChessPieces.AllowedMoves(x, y, white) == true)
                                         {
-                                            white[dragging].Box.Top = 25 + o * 94 + 10;
-                                            white[dragging].Box.Left = 50 + i * 99 + 10;
+                                            white[dragging].Box.Top = 25 + o * 72;
+                                            white[dragging].Box.Left = 50 + i * 72;
                                             white[dragging].X = x;
                                             white[dragging].Y = y;
                                             if (white[dragging].GetType() == typeof(Pone) && white[dragging].Y == 8)                                            
@@ -384,8 +385,8 @@ namespace ChessProject
                                     {
                                         if (ChessPieces.AllowedMoves(x, y, black) == true)
                                         {
-                                            black[c].Box.Top = 25 + o * 94 + 10;
-                                            black[c].Box.Left = 50 + i * 99 + 10;
+                                            black[c].Box.Top = 25 + o * 72;
+                                            black[c].Box.Left = 50 + i * 72;
                                             black[c].X = x;
                                             black[c].Y = y;
                                             castleB = 1;
@@ -413,8 +414,8 @@ namespace ChessProject
                                 {
                                     if (((x == a && y == b) == true || black[c].Cover(x, y, checkB, kingBlack, white, black) == true) && black[c].AllowedMoves(x, y, white, black, ChessPieces.Color.black,0) == true && black[c].Block(x, y, white, black, ChessPieces.Color.black, 1) == true)
                                     {
-                                        black[c].Box.Top = 25 + o * 94 + 10;
-                                        black[c].Box.Left = 50 + i * 99 + 10;
+                                        black[c].Box.Top = 25 + o * 72;
+                                        black[c].Box.Left = 50 + i * 72;
                                         black[c].X = x;
                                         black[c].Y = y;
                                         if (x % 2 != 0 && y % 2 == 0 || x % 2 == 0 && y % 2 != 0)
@@ -455,8 +456,8 @@ namespace ChessProject
                                                     label7.Text = black[c].Castle(x, y, white, black, ChessPieces.Color.black).ToString();
                                                     if (black[c].Castle(x, y, white, black, ChessPieces.Color.black) == true)
                                                     {
-                                                        black[c].Box.Top = 25 + o * 94 + 10;
-                                                        black[c].Box.Left = 50 + i * 99 + 10;
+                                                        black[c].Box.Top = 25 + o * 72;
+                                                        black[c].Box.Left = 50 + i * 72;
                                                         black[c].X = x;
                                                         black[c].Y = y;
                                                         castleB = 1;
@@ -466,8 +467,8 @@ namespace ChessProject
                                                         }
                                                         else { black[c].Box.BackColor = dark; }
 
-                                                        black[r].Box.Top = 25 + o * 94 + 10;
-                                                        black[r].Box.Left = 50 + (i - 1) * 99 + 10;
+                                                        black[r].Box.Top = 25 + o * 72;
+                                                        black[r].Box.Left = 50 + i * 72;
                                                         black[r].X = x - 1;
                                                         black[r].Y = y;
                                                         if (black[r].X % 2 != 0 && y % 2 == 0 || black[r].X % 2 == 0 && y % 2 != 0)
@@ -491,8 +492,8 @@ namespace ChessProject
                                                     label6.Text = black[c].CastleL(x, y, white, black, ChessPieces.Color.black).ToString();
                                                     if (black[c].CastleL(x, y, white, black, ChessPieces.Color.black) == true)
                                                     {
-                                                        black[c].Box.Top = 25 + o * 94 + 10;
-                                                        black[c].Box.Left = 50 + i * 99 + 10;
+                                                        black[c].Box.Top = 25 + o * 72;
+                                                        black[c].Box.Left = 50 + i * 72;
                                                         black[c].X = x;
                                                         black[c].Y = y;
                                                         castleB = 1;
@@ -502,8 +503,8 @@ namespace ChessProject
                                                         }
                                                         else { black[c].Box.BackColor = dark; }
 
-                                                        black[r].Box.Top = 25 + o * 94 + 10;
-                                                        black[r].Box.Left = 50 + (i + 1) * 99 + 10;
+                                                        black[r].Box.Top = 25 + o * 72;
+                                                        black[r].Box.Left = 50 + i * 72;
                                                         black[r].X = x + 1;
                                                         black[r].Y = y;
                                                         if (black[r].X % 2 != 0 && y % 2 == 0 || black[r].X % 2 == 0 && y % 2 != 0)
@@ -523,8 +524,8 @@ namespace ChessProject
                                     {                                    
                                         if (ChessPieces.AllowedMoves(x, y, black) == true)
                                         {
-                                            black[c].Box.Top = 25 + o * 94 + 10;
-                                            black[c].Box.Left = 50 + i * 99 + 10;
+                                            black[c].Box.Top = 50 + i * 72;
+                                            black[c].Box.Left = 50 + i * 72;
                                             black[c].X = x;
                                             black[c].Y = y;
                                             castleB = 1;
@@ -554,8 +555,8 @@ namespace ChessProject
                                     {
                                         if (ChessPieces.AllowedMoves(x, y, black) == true)
                                         {
-                                            black[c].Box.Top = 25 + o * 94 + 10;
-                                            black[c].Box.Left = 50 + i * 99 + 10;
+                                            black[c].Box.Top = 50 + i * 72;
+                                            black[c].Box.Left = 50 + i * 72;
                                             black[c].X = x;
                                             black[c].Y = y;
                                             if (black[c].GetType() == typeof(Pone) && black[c].Y == 1)
