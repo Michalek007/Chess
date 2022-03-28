@@ -49,22 +49,6 @@ namespace ChessProject
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.pictureBox19 = new System.Windows.Forms.PictureBox();
-            this.pictureBox20 = new System.Windows.Forms.PictureBox();
-            this.pictureBox21 = new System.Windows.Forms.PictureBox();
-            this.pictureBox22 = new System.Windows.Forms.PictureBox();
-            this.pictureBox24 = new System.Windows.Forms.PictureBox();
-            this.pictureBox25 = new System.Windows.Forms.PictureBox();
-            this.pictureBox26 = new System.Windows.Forms.PictureBox();
-            this.pictureBox29 = new System.Windows.Forms.PictureBox();
-            this.pictureBox30 = new System.Windows.Forms.PictureBox();
-            this.pictureBox31 = new System.Windows.Forms.PictureBox();
-            this.pictureBox32 = new System.Windows.Forms.PictureBox();
-            this.pictureBox33 = new System.Windows.Forms.PictureBox();
-            this.pictureBox34 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -135,22 +119,22 @@ namespace ChessProject
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).BeginInit();
+            this.pictureBox29 = new System.Windows.Forms.PictureBox();
+            this.pictureBox30 = new System.Windows.Forms.PictureBox();
+            this.pictureBox31 = new System.Windows.Forms.PictureBox();
+            this.pictureBox32 = new System.Windows.Forms.PictureBox();
+            this.pictureBox33 = new System.Windows.Forms.PictureBox();
+            this.pictureBox34 = new System.Windows.Forms.PictureBox();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
+            this.pictureBox19 = new System.Windows.Forms.PictureBox();
+            this.pictureBox20 = new System.Windows.Forms.PictureBox();
+            this.pictureBox21 = new System.Windows.Forms.PictureBox();
+            this.pictureBox22 = new System.Windows.Forms.PictureBox();
+            this.pictureBox24 = new System.Windows.Forms.PictureBox();
+            this.pictureBox25 = new System.Windows.Forms.PictureBox();
+            this.pictureBox26 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -167,6 +151,22 @@ namespace ChessProject
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -371,166 +371,6 @@ namespace ChessProject
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 120;
             this.label3.Text = "label3";
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(1026, 9);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(66, 66);
-            this.pictureBox10.TabIndex = 134;
-            this.pictureBox10.TabStop = false;
-            this.pictureBox10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox10_MouseDown);
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(953, 9);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(66, 66);
-            this.pictureBox11.TabIndex = 133;
-            this.pictureBox11.TabStop = false;
-            this.pictureBox11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox11_MouseDown);
-            // 
-            // pictureBox18
-            // 
-            this.pictureBox18.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox18.Image")));
-            this.pictureBox18.Location = new System.Drawing.Point(1024, 285);
-            this.pictureBox18.Name = "pictureBox18";
-            this.pictureBox18.Size = new System.Drawing.Size(66, 66);
-            this.pictureBox18.TabIndex = 142;
-            this.pictureBox18.TabStop = false;
-            this.pictureBox18.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox18_MouseDown);
-            // 
-            // pictureBox19
-            // 
-            this.pictureBox19.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox19.Image")));
-            this.pictureBox19.Location = new System.Drawing.Point(951, 285);
-            this.pictureBox19.Name = "pictureBox19";
-            this.pictureBox19.Size = new System.Drawing.Size(66, 66);
-            this.pictureBox19.TabIndex = 141;
-            this.pictureBox19.TabStop = false;
-            this.pictureBox19.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox19_MouseDown);
-            // 
-            // pictureBox20
-            // 
-            this.pictureBox20.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox20.Image")));
-            this.pictureBox20.Location = new System.Drawing.Point(1024, 217);
-            this.pictureBox20.Name = "pictureBox20";
-            this.pictureBox20.Size = new System.Drawing.Size(66, 66);
-            this.pictureBox20.TabIndex = 140;
-            this.pictureBox20.TabStop = false;
-            this.pictureBox20.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox20_MouseDown);
-            // 
-            // pictureBox21
-            // 
-            this.pictureBox21.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox21.Image")));
-            this.pictureBox21.Location = new System.Drawing.Point(951, 217);
-            this.pictureBox21.Name = "pictureBox21";
-            this.pictureBox21.Size = new System.Drawing.Size(66, 66);
-            this.pictureBox21.TabIndex = 139;
-            this.pictureBox21.TabStop = false;
-            this.pictureBox21.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox21_MouseDown);
-            // 
-            // pictureBox22
-            // 
-            this.pictureBox22.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox22.Image")));
-            this.pictureBox22.Location = new System.Drawing.Point(1024, 149);
-            this.pictureBox22.Name = "pictureBox22";
-            this.pictureBox22.Size = new System.Drawing.Size(66, 66);
-            this.pictureBox22.TabIndex = 138;
-            this.pictureBox22.TabStop = false;
-            this.pictureBox22.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox22_MouseDown);
-            // 
-            // pictureBox24
-            // 
-            this.pictureBox24.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox24.Image")));
-            this.pictureBox24.Location = new System.Drawing.Point(951, 149);
-            this.pictureBox24.Name = "pictureBox24";
-            this.pictureBox24.Size = new System.Drawing.Size(66, 66);
-            this.pictureBox24.TabIndex = 137;
-            this.pictureBox24.TabStop = false;
-            this.pictureBox24.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox24_MouseDown);
-            // 
-            // pictureBox25
-            // 
-            this.pictureBox25.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox25.Image")));
-            this.pictureBox25.Location = new System.Drawing.Point(1024, 81);
-            this.pictureBox25.Name = "pictureBox25";
-            this.pictureBox25.Size = new System.Drawing.Size(66, 66);
-            this.pictureBox25.TabIndex = 136;
-            this.pictureBox25.TabStop = false;
-            this.pictureBox25.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox25_MouseDown);
-            // 
-            // pictureBox26
-            // 
-            this.pictureBox26.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox26.Image")));
-            this.pictureBox26.Location = new System.Drawing.Point(952, 81);
-            this.pictureBox26.Name = "pictureBox26";
-            this.pictureBox26.Size = new System.Drawing.Size(66, 66);
-            this.pictureBox26.TabIndex = 135;
-            this.pictureBox26.TabStop = false;
-            this.pictureBox26.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox26_MouseDown);
-            // 
-            // pictureBox29
-            // 
-            this.pictureBox29.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox29.Image")));
-            this.pictureBox29.Location = new System.Drawing.Point(1024, 489);
-            this.pictureBox29.Name = "pictureBox29";
-            this.pictureBox29.Size = new System.Drawing.Size(66, 66);
-            this.pictureBox29.TabIndex = 148;
-            this.pictureBox29.TabStop = false;
-            this.pictureBox29.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox29_MouseDown);
-            // 
-            // pictureBox30
-            // 
-            this.pictureBox30.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox30.Image")));
-            this.pictureBox30.Location = new System.Drawing.Point(951, 489);
-            this.pictureBox30.Name = "pictureBox30";
-            this.pictureBox30.Size = new System.Drawing.Size(66, 66);
-            this.pictureBox30.TabIndex = 147;
-            this.pictureBox30.TabStop = false;
-            this.pictureBox30.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox30_MouseDown);
-            // 
-            // pictureBox31
-            // 
-            this.pictureBox31.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox31.Image")));
-            this.pictureBox31.Location = new System.Drawing.Point(1024, 421);
-            this.pictureBox31.Name = "pictureBox31";
-            this.pictureBox31.Size = new System.Drawing.Size(66, 66);
-            this.pictureBox31.TabIndex = 146;
-            this.pictureBox31.TabStop = false;
-            this.pictureBox31.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox31_MouseDown);
-            // 
-            // pictureBox32
-            // 
-            this.pictureBox32.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox32.Image")));
-            this.pictureBox32.Location = new System.Drawing.Point(951, 421);
-            this.pictureBox32.Name = "pictureBox32";
-            this.pictureBox32.Size = new System.Drawing.Size(66, 66);
-            this.pictureBox32.TabIndex = 145;
-            this.pictureBox32.TabStop = false;
-            this.pictureBox32.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox32_MouseDown);
-            // 
-            // pictureBox33
-            // 
-            this.pictureBox33.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox33.Image")));
-            this.pictureBox33.Location = new System.Drawing.Point(1024, 353);
-            this.pictureBox33.Name = "pictureBox33";
-            this.pictureBox33.Size = new System.Drawing.Size(66, 66);
-            this.pictureBox33.TabIndex = 144;
-            this.pictureBox33.TabStop = false;
-            this.pictureBox33.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox33_MouseDown);
-            // 
-            // pictureBox34
-            // 
-            this.pictureBox34.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox34.Image")));
-            this.pictureBox34.Location = new System.Drawing.Point(952, 353);
-            this.pictureBox34.Name = "pictureBox34";
-            this.pictureBox34.Size = new System.Drawing.Size(66, 66);
-            this.pictureBox34.TabIndex = 143;
-            this.pictureBox34.TabStop = false;
-            this.pictureBox34.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox34_MouseDown);
             // 
             // label4
             // 
@@ -1277,12 +1117,188 @@ namespace ChessProject
             this.pictureBox3.TabStop = false;
             this.pictureBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBox3_MouseDown);
             // 
+            // pictureBox29
+            // 
+            this.pictureBox29.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox29.Image")));
+            this.pictureBox29.Location = new System.Drawing.Point(1030, 489);
+            this.pictureBox29.Name = "pictureBox29";
+            this.pictureBox29.Size = new System.Drawing.Size(66, 66);
+            this.pictureBox29.TabIndex = 202;
+            this.pictureBox29.TabStop = false;
+            this.pictureBox29.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox29_MouseDown);
+            // 
+            // pictureBox30
+            // 
+            this.pictureBox30.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox30.Image")));
+            this.pictureBox30.Location = new System.Drawing.Point(957, 489);
+            this.pictureBox30.Name = "pictureBox30";
+            this.pictureBox30.Size = new System.Drawing.Size(66, 66);
+            this.pictureBox30.TabIndex = 201;
+            this.pictureBox30.TabStop = false;
+            this.pictureBox30.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox30_MouseDown);
+            // 
+            // pictureBox31
+            // 
+            this.pictureBox31.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox31.Image")));
+            this.pictureBox31.Location = new System.Drawing.Point(1030, 421);
+            this.pictureBox31.Name = "pictureBox31";
+            this.pictureBox31.Size = new System.Drawing.Size(66, 66);
+            this.pictureBox31.TabIndex = 200;
+            this.pictureBox31.TabStop = false;
+            this.pictureBox31.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox31_MouseDown);
+            // 
+            // pictureBox32
+            // 
+            this.pictureBox32.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox32.Image")));
+            this.pictureBox32.Location = new System.Drawing.Point(957, 421);
+            this.pictureBox32.Name = "pictureBox32";
+            this.pictureBox32.Size = new System.Drawing.Size(66, 66);
+            this.pictureBox32.TabIndex = 199;
+            this.pictureBox32.TabStop = false;
+            this.pictureBox32.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox32_MouseDown);
+            // 
+            // pictureBox33
+            // 
+            this.pictureBox33.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox33.Image")));
+            this.pictureBox33.Location = new System.Drawing.Point(1030, 353);
+            this.pictureBox33.Name = "pictureBox33";
+            this.pictureBox33.Size = new System.Drawing.Size(66, 66);
+            this.pictureBox33.TabIndex = 198;
+            this.pictureBox33.TabStop = false;
+            this.pictureBox33.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox33_MouseDown);
+            // 
+            // pictureBox34
+            // 
+            this.pictureBox34.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox34.Image")));
+            this.pictureBox34.Location = new System.Drawing.Point(958, 353);
+            this.pictureBox34.Name = "pictureBox34";
+            this.pictureBox34.Size = new System.Drawing.Size(66, 66);
+            this.pictureBox34.TabIndex = 197;
+            this.pictureBox34.TabStop = false;
+            this.pictureBox34.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox34_MouseDown);
+            // 
+            // pictureBox18
+            // 
+            this.pictureBox18.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox18.Image")));
+            this.pictureBox18.Location = new System.Drawing.Point(1030, 285);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(66, 66);
+            this.pictureBox18.TabIndex = 196;
+            this.pictureBox18.TabStop = false;
+            this.pictureBox18.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox18_MouseDown);
+            // 
+            // pictureBox19
+            // 
+            this.pictureBox19.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox19.Image")));
+            this.pictureBox19.Location = new System.Drawing.Point(957, 285);
+            this.pictureBox19.Name = "pictureBox19";
+            this.pictureBox19.Size = new System.Drawing.Size(66, 66);
+            this.pictureBox19.TabIndex = 195;
+            this.pictureBox19.TabStop = false;
+            this.pictureBox19.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox19_MouseDown);
+            // 
+            // pictureBox20
+            // 
+            this.pictureBox20.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox20.Image")));
+            this.pictureBox20.Location = new System.Drawing.Point(1030, 217);
+            this.pictureBox20.Name = "pictureBox20";
+            this.pictureBox20.Size = new System.Drawing.Size(66, 66);
+            this.pictureBox20.TabIndex = 194;
+            this.pictureBox20.TabStop = false;
+            this.pictureBox20.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox20_MouseDown);
+            // 
+            // pictureBox21
+            // 
+            this.pictureBox21.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox21.Image")));
+            this.pictureBox21.Location = new System.Drawing.Point(957, 217);
+            this.pictureBox21.Name = "pictureBox21";
+            this.pictureBox21.Size = new System.Drawing.Size(66, 66);
+            this.pictureBox21.TabIndex = 193;
+            this.pictureBox21.TabStop = false;
+            this.pictureBox21.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox21_MouseDown);
+            // 
+            // pictureBox22
+            // 
+            this.pictureBox22.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox22.Image")));
+            this.pictureBox22.Location = new System.Drawing.Point(1030, 149);
+            this.pictureBox22.Name = "pictureBox22";
+            this.pictureBox22.Size = new System.Drawing.Size(66, 66);
+            this.pictureBox22.TabIndex = 192;
+            this.pictureBox22.TabStop = false;
+            this.pictureBox22.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox22_MouseDown);
+            // 
+            // pictureBox24
+            // 
+            this.pictureBox24.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox24.Image")));
+            this.pictureBox24.Location = new System.Drawing.Point(957, 149);
+            this.pictureBox24.Name = "pictureBox24";
+            this.pictureBox24.Size = new System.Drawing.Size(66, 66);
+            this.pictureBox24.TabIndex = 191;
+            this.pictureBox24.TabStop = false;
+            this.pictureBox24.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox24_MouseDown);
+            // 
+            // pictureBox25
+            // 
+            this.pictureBox25.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox25.Image")));
+            this.pictureBox25.Location = new System.Drawing.Point(1030, 81);
+            this.pictureBox25.Name = "pictureBox25";
+            this.pictureBox25.Size = new System.Drawing.Size(66, 66);
+            this.pictureBox25.TabIndex = 190;
+            this.pictureBox25.TabStop = false;
+            this.pictureBox25.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox25_MouseDown);
+            // 
+            // pictureBox26
+            // 
+            this.pictureBox26.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox26.Image")));
+            this.pictureBox26.Location = new System.Drawing.Point(958, 81);
+            this.pictureBox26.Name = "pictureBox26";
+            this.pictureBox26.Size = new System.Drawing.Size(66, 66);
+            this.pictureBox26.TabIndex = 189;
+            this.pictureBox26.TabStop = false;
+            this.pictureBox26.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox26_MouseDown);
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(1032, 9);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(66, 66);
+            this.pictureBox10.TabIndex = 188;
+            this.pictureBox10.TabStop = false;
+            this.pictureBox10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox10_MouseDown);
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.Location = new System.Drawing.Point(959, 9);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(66, 66);
+            this.pictureBox11.TabIndex = 187;
+            this.pictureBox11.TabStop = false;
+            this.pictureBox11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox11_MouseDown);
+            // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1110, 621);
+            this.Controls.Add(this.pictureBox29);
+            this.Controls.Add(this.pictureBox30);
+            this.Controls.Add(this.pictureBox31);
+            this.Controls.Add(this.pictureBox32);
+            this.Controls.Add(this.pictureBox33);
+            this.Controls.Add(this.pictureBox34);
+            this.Controls.Add(this.pictureBox18);
+            this.Controls.Add(this.pictureBox19);
+            this.Controls.Add(this.pictureBox20);
+            this.Controls.Add(this.pictureBox21);
+            this.Controls.Add(this.pictureBox22);
+            this.Controls.Add(this.pictureBox24);
+            this.Controls.Add(this.pictureBox25);
+            this.Controls.Add(this.pictureBox26);
+            this.Controls.Add(this.pictureBox10);
+            this.Controls.Add(this.pictureBox11);
             this.Controls.Add(this.pictureBox23);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox12);
@@ -1345,30 +1361,14 @@ namespace ChessProject
             this.Controls.Add(this.panel47);
             this.Controls.Add(this.panel48);
             this.Controls.Add(this.panel24);
-            this.Controls.Add(this.pictureBox29);
             this.Controls.Add(this.panel25);
-            this.Controls.Add(this.pictureBox30);
             this.Controls.Add(this.panel26);
-            this.Controls.Add(this.pictureBox31);
             this.Controls.Add(this.panel27);
-            this.Controls.Add(this.pictureBox32);
             this.Controls.Add(this.panel28);
-            this.Controls.Add(this.pictureBox33);
             this.Controls.Add(this.panel29);
-            this.Controls.Add(this.pictureBox34);
             this.Controls.Add(this.panel30);
-            this.Controls.Add(this.pictureBox18);
             this.Controls.Add(this.panel31);
-            this.Controls.Add(this.pictureBox19);
             this.Controls.Add(this.panel32);
-            this.Controls.Add(this.pictureBox20);
-            this.Controls.Add(this.pictureBox21);
-            this.Controls.Add(this.pictureBox22);
-            this.Controls.Add(this.pictureBox24);
-            this.Controls.Add(this.pictureBox25);
-            this.Controls.Add(this.pictureBox26);
-            this.Controls.Add(this.pictureBox10);
-            this.Controls.Add(this.pictureBox11);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -1395,22 +1395,6 @@ namespace ChessProject
             this.Load += new System.EventHandler(this.Form1_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
@@ -1427,6 +1411,22 @@ namespace ChessProject
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1452,22 +1452,6 @@ namespace ChessProject
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.PictureBox pictureBox18;
-        private System.Windows.Forms.PictureBox pictureBox19;
-        private System.Windows.Forms.PictureBox pictureBox20;
-        private System.Windows.Forms.PictureBox pictureBox21;
-        private System.Windows.Forms.PictureBox pictureBox22;
-        private System.Windows.Forms.PictureBox pictureBox24;
-        private System.Windows.Forms.PictureBox pictureBox25;
-        private System.Windows.Forms.PictureBox pictureBox26;
-        private System.Windows.Forms.PictureBox pictureBox29;
-        private System.Windows.Forms.PictureBox pictureBox30;
-        private System.Windows.Forms.PictureBox pictureBox31;
-        private System.Windows.Forms.PictureBox pictureBox32;
-        private System.Windows.Forms.PictureBox pictureBox33;
-        private System.Windows.Forms.PictureBox pictureBox34;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -1538,6 +1522,22 @@ namespace ChessProject
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox29;
+        private System.Windows.Forms.PictureBox pictureBox30;
+        private System.Windows.Forms.PictureBox pictureBox31;
+        private System.Windows.Forms.PictureBox pictureBox32;
+        private System.Windows.Forms.PictureBox pictureBox33;
+        private System.Windows.Forms.PictureBox pictureBox34;
+        private System.Windows.Forms.PictureBox pictureBox18;
+        private System.Windows.Forms.PictureBox pictureBox19;
+        private System.Windows.Forms.PictureBox pictureBox20;
+        private System.Windows.Forms.PictureBox pictureBox21;
+        private System.Windows.Forms.PictureBox pictureBox22;
+        private System.Windows.Forms.PictureBox pictureBox24;
+        private System.Windows.Forms.PictureBox pictureBox25;
+        private System.Windows.Forms.PictureBox pictureBox26;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }
 

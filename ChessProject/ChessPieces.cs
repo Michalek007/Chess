@@ -1707,7 +1707,7 @@ namespace ChessProject
         {
             for (int i = 0; i < 8; i++)
             {
-                if (x > 50 + i * 72 && x < 50 + 72 + i * 72)
+                if (x >= 50 + i * 72 && x <= 50 + 66 + i * 72)
                 {
                     return i+1;
                 }
@@ -1720,7 +1720,7 @@ namespace ChessProject
         {
             for (int i = 0; i < 8; i++)
             {
-                if (y > 25 + i * 72 && y < 25 + 72 + i * 72)
+                if (y >= 25 + i * 72 && y <= 25 + 66 + i * 72)
                 {
                     if (i + 1 == 1)
                     {

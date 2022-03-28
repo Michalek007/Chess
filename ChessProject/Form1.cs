@@ -114,7 +114,6 @@ namespace ChessProject
         }
         private void MoveList(string symbol, int x, int y)
         {
-
             string move = symbol + ChessPieces.ConvertToLetter(x) + y;
             moves.Add(move);
         }
@@ -125,7 +124,7 @@ namespace ChessProject
             {
                 for (int o = 0; o < 8; o++)
                 {
-                    if (Cursor.Position.X > 50 + i * 72 && Cursor.Position.X < 50 + 66 + i * 72 && Cursor.Position.Y > 25 + o * 72 && Cursor.Position.Y < 25 + 66 + o * 72)
+                    if (Cursor.Position.X >= 50 + i * 72 && Cursor.Position.X <= 50 + 66 + i * 72 && Cursor.Position.Y >= 25 + o * 72 && Cursor.Position.Y <= 25 + 66 + o * 72)
                     {
                         int x = ChessPieces.ConvertX(50 + i * 72);
                         int y = ChessPieces.ConvertY(25 + o * 72);
@@ -241,7 +240,7 @@ namespace ChessProject
                                                         else { white[0].Box.BackColor = dark; }
 
                                                         white[r].Box.Top = 25 + o * 72;
-                                                        white[r].Box.Left = 50 + (i - 1) * 99 + 10;
+                                                        white[r].Box.Left = 50 + i * 72;
                                                         white[r].X = x - 1;
                                                         white[r].Y = y;
                                                         if (white[r].X % 2 != 0 && y % 2 == 0 || white[r].X % 2 == 0 && y % 2 != 0)
@@ -277,7 +276,7 @@ namespace ChessProject
                                                         else { white[0].Box.BackColor = dark; }
 
                                                         white[r].Box.Top = 25 + o * 72;
-                                                        white[r].Box.Left = 50 + (i + 1) * 99 + 10;
+                                                        white[r].Box.Left = 50 + (i + 1) * 72;
                                                         white[r].X = x + 1;
                                                         white[r].Y = y;
                                                         if (white[r].X % 2 != 0 && y % 2 == 0 || white[r].X % 2 == 0 && y % 2 != 0)
@@ -524,7 +523,7 @@ namespace ChessProject
                                     {                                    
                                         if (ChessPieces.AllowedMoves(x, y, black) == true)
                                         {
-                                            black[c].Box.Top = 50 + i * 72;
+                                            black[c].Box.Top = 25 + o * 72;
                                             black[c].Box.Left = 50 + i * 72;
                                             black[c].X = x;
                                             black[c].Y = y;
@@ -555,7 +554,11 @@ namespace ChessProject
                                     {
                                         if (ChessPieces.AllowedMoves(x, y, black) == true)
                                         {
-                                            black[c].Box.Top = 50 + i * 72;
+                                            label4.Text = x.ToString();
+                                            label5.Text = y.ToString();
+                                            label6.Text = o.ToString();
+                                            label7.Text = i.ToString();
+                                            black[c].Box.Top = 25 + o * 72;
                                             black[c].Box.Left = 50 + i * 72;
                                             black[c].X = x;
                                             black[c].Y = y;
