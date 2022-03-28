@@ -135,6 +135,7 @@ namespace ChessProject
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -892,7 +893,7 @@ namespace ChessProject
             this.pictureBox1.Size = new System.Drawing.Size(66, 66);
             this.pictureBox1.TabIndex = 115;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseDown);
+            this.pictureBox1.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // label1
             // 
@@ -1224,7 +1225,7 @@ namespace ChessProject
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(849, 664);
+            this.label4.Location = new System.Drawing.Point(849, 633);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 149;
@@ -1233,7 +1234,7 @@ namespace ChessProject
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(921, 664);
+            this.label5.Location = new System.Drawing.Point(921, 633);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 150;
@@ -1242,7 +1243,7 @@ namespace ChessProject
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1017, 664);
+            this.label6.Location = new System.Drawing.Point(1017, 633);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 151;
@@ -1251,7 +1252,7 @@ namespace ChessProject
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1090, 664);
+            this.label7.Location = new System.Drawing.Point(1090, 633);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 152;
@@ -1277,12 +1278,23 @@ namespace ChessProject
             this.button2.UseVisualStyleBackColor = true;
             this.button2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button2_MouseClick);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(852, 659);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(138, 46);
+            this.button3.TabIndex = 155;
+            this.button3.Text = "Undo";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button3_MouseClick);
+            // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1171, 829);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
@@ -1391,7 +1403,6 @@ namespace ChessProject
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox23_DragEnter);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
@@ -1537,6 +1548,7 @@ namespace ChessProject
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
 

@@ -22,7 +22,7 @@ namespace ChessProject
             black,
             white
         }
-        public Color color {get;set;}
+        public Color color { get; set; }
 
         public static bool AllowedMoves(int x, int y, List<ChessPieces> pieces)
         {
@@ -1144,12 +1144,12 @@ namespace ChessProject
                 {
                     if (name == Color.white)
                     {
-                        if ((x == X + 1 || x == X -1) && y == Y + 1) 
+                        if ((x == X + 1 || x == X - 1) && y == Y + 1)
                         {
                             return true;
-                        }                                                  
+                        }
                     }
-                    if(name == Color.black)
+                    if (name == Color.black)
                     {
                         if ((x == X + 1 || x == X - 1) && y == Y - 1)
                         {
@@ -1219,7 +1219,7 @@ namespace ChessProject
                         return false;
                     }
 
-                }               
+                }
                 if (name == Color.white)
                 {
                     if (AllowedMovesKing(x, y, black, white, Color.black) == false)
@@ -1320,13 +1320,13 @@ namespace ChessProject
 
         public bool Block(int x, int y, List<ChessPieces> white, List<ChessPieces> black, Color name, int use)
         {
-            if ( name == Color.white && use != 1)
+            if (name == Color.white && use != 1)
             {
-                for (int i =0; i < white.Count; i++)
+                for (int i = 0; i < white.Count; i++)
                 {
-                    if( X == white[i].X && Y == white[i].Y)
-                    {                        
-                        List<ChessPieces> neWhite = new List<ChessPieces> ();
+                    if (X == white[i].X && Y == white[i].Y)
+                    {
+                        List<ChessPieces> neWhite = new List<ChessPieces>();
                         foreach (ChessPieces z in white)
                         {
                             neWhite.Add(z);
@@ -1335,7 +1335,7 @@ namespace ChessProject
                         ChessPieces check = ChessPieces.TypeOfPieces(white[0].X, white[0].Y, neWhite, black, ChessPieces.Color.black);
                         int a = check.X;
                         int b = check.Y;
-                        if (this.Cover(x,y,check,white[0],neWhite,black) == true || (x ==a && y ==b))
+                        if (this.Cover(x, y, check, white[0], neWhite, black) == true || (x == a && y == b))
                         {
                             neWhite.Clear();
                             return true;
@@ -1347,7 +1347,7 @@ namespace ChessProject
                         }
                         neWhite.Clear();
                     }
-                    
+
                 }
             }
             if (name == Color.black && use != 1)
@@ -1400,12 +1400,12 @@ namespace ChessProject
                         int l = neWhite[i].Y;
                         neWhite[i].X = x;
                         neWhite[i].Y = y;
-                        for (int o= 0; o < newBlack.Count; o++)
+                        for (int o = 0; o < newBlack.Count; o++)
                         {
                             if (x == newBlack[o].X && y == newBlack[o].Y)
                             {
                                 newBlack.RemoveAt(o);
-                                
+
                             }
 
                         }
@@ -1483,7 +1483,7 @@ namespace ChessProject
                     if (black[i].AllowedMoves(x, y, white, black, name.color, 0) == true)
                     {
                         int z = 0;
-                        z ++;
+                        z++;
                         if (z == 2)
                         {
                             return false;
@@ -1512,7 +1512,7 @@ namespace ChessProject
             }
             if (name.Y == king.Y && name.X < king.X)
             {
-                for (int i =1; i < king.X - name.X; i++)
+                for (int i = 1; i < king.X - name.X; i++)
                 {
                     if (x == name.X + i && y == name.Y)
                     {
@@ -1610,7 +1610,7 @@ namespace ChessProject
                     }
 
 
-                }                
+                }
             }
             else
             {
@@ -1646,7 +1646,7 @@ namespace ChessProject
                             {
                                 if (white[i].GetType() == typeof(King))
                                 {
-                                    if (white[i].AllowedMoves(o, l, white, black, white[0].color, 1) == true && ChessPieces.AllowedMovesKing(o,l, black, white, ChessPieces.Color.black) == true && ChessPieces.AllowedMoves(o, l, white) == true)
+                                    if (white[i].AllowedMoves(o, l, white, black, white[0].color, 1) == true && ChessPieces.AllowedMovesKing(o, l, black, white, ChessPieces.Color.black) == true && ChessPieces.AllowedMoves(o, l, white) == true)
                                     {
                                         return false;
                                     }
@@ -1658,7 +1658,7 @@ namespace ChessProject
                                         return false;
                                     }
                                 }
-                               
+
                             }
                         }
                     }
@@ -1682,22 +1682,22 @@ namespace ChessProject
                                         {
                                             return false;
                                         }
-                                    }    
-                                }   
+                                    }
+                                }
                                 else
                                 {
                                     if (((o == a && l == b) == true || black[i].Cover(o, l, check, this, white, black) == true) && black[i].AllowedMoves(o, l, white, black, name, 0) == true && black[i].Block(o, l, white, black, name, 1) == true)
                                     {
                                         return false;
                                     }
-                                }                                   
+                                }
                             }
                         }
                     }
 
                 }
             }
-           
+
             return true;
 
 
@@ -1709,12 +1709,12 @@ namespace ChessProject
             {
                 if (x > 50 + i * 99 && x < 50 + 93 + i * 99)
                 {
-                    return i+1;
+                    return i + 1;
                 }
 
             }
             return 1;
-            
+
         }
         public static int ConvertY(int y)
         {
@@ -1771,7 +1771,7 @@ namespace ChessProject
             {
                 y = 8;
             }
-            else if (y ==2)
+            else if (y == 2)
             {
                 y = 7;
             }
@@ -1799,7 +1799,7 @@ namespace ChessProject
             {
                 y = 1;
             }
-            return 25 + (y-1) * 94 + 10;
+            return 25 + (y - 1) * 94 + 10;
 
         }
 
@@ -1809,7 +1809,7 @@ namespace ChessProject
             {
                 return "A";
             }
-            else if ( x == 2)
+            else if (x == 2)
             {
                 return "B";
             }
@@ -1838,8 +1838,41 @@ namespace ChessProject
                 return "H";
             }
         }
-
+        public static int ConvertToNumber(char a)
+        {
+            if (a == 'A')
+            {
+                return 1;
+            }
+            else if (a == 'B')
+            {
+                return 2;
+            }
+            else if (a == 'C')
+            {
+                return 3;
+            }
+            else if (a == 'D')
+            {
+                return 4;
+            }
+            else if (a == 'E')
+            {
+                return 5;
+            }
+            else if (a == 'F')
+            {
+                return 6;
+            }
+            else if (a == 'G')
+            {
+                return 7;
+            }
+            else if (a == 'H')
+            {
+                return 8;
+            }
+            return 1;
+        }
     }
-
-    
 }

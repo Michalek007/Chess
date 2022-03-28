@@ -103,10 +103,6 @@ namespace ChessProject
             throw new NotImplementedException();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }      
-
         private void PictureBox23_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Copy;
@@ -1235,9 +1231,16 @@ namespace ChessProject
                 {
                     byte[] info = new UTF8Encoding(true).GetBytes(" " + s);
                     fs.Write(info, 0, info.Length);
-                }
-                
+                }   
             }
+        }
+
+        private void button3_MouseClick(object sender, MouseEventArgs e)
+        {
+            char chess_type = moves.Last()[0];
+            char horizontal = moves.Last()[1];
+            int vertical = moves.Last()[2];
+            int y = ChessPieces.ConvertToNumber(horizontal);
 
         }
     }
