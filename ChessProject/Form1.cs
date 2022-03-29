@@ -98,11 +98,6 @@ namespace ChessProject
             }
         }
 
-        private void Form1_SizeChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void PictureBox23_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Copy;
@@ -1241,6 +1236,18 @@ namespace ChessProject
             char horizontal = moves.Last()[1];
             int vertical = moves.Last()[2];
             int y = ChessPieces.ConvertToNumber(horizontal);
+
+        }
+
+        private void pictureBox1_Move(object sender, EventArgs e)
+        {
+            for (int i = 0; i < white.Count; i++)
+            {
+                if (white[i].Box == sender)
+                {
+                    label1.Text = white[i].GetType().Name;
+                }
+            }
 
         }
     }

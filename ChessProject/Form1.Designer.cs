@@ -180,6 +180,7 @@ namespace ChessProject
             this.pictureBox23.TabIndex = 26;
             this.pictureBox23.TabStop = false;
             this.pictureBox23.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBox23_MouseDown);
+            this.pictureBox23.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // panel3
             // 
@@ -893,6 +894,7 @@ namespace ChessProject
             this.pictureBox1.Size = new System.Drawing.Size(66, 66);
             this.pictureBox1.TabIndex = 115;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseDown);
             this.pictureBox1.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // label1
@@ -913,6 +915,7 @@ namespace ChessProject
             this.pictureBox2.TabIndex = 117;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBox2_MouseDown);
+            this.pictureBox2.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox3
             // 
@@ -923,6 +926,7 @@ namespace ChessProject
             this.pictureBox3.TabIndex = 118;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBox3_MouseDown);
+            this.pictureBox3.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // label2
             // 
@@ -951,6 +955,7 @@ namespace ChessProject
             this.pictureBox4.TabIndex = 121;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox4_MouseDown);
+            this.pictureBox4.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox5
             // 
@@ -961,6 +966,7 @@ namespace ChessProject
             this.pictureBox5.TabIndex = 122;
             this.pictureBox5.TabStop = false;
             this.pictureBox5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox5_MouseDown);
+            this.pictureBox5.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox6
             // 
@@ -971,6 +977,7 @@ namespace ChessProject
             this.pictureBox6.TabIndex = 123;
             this.pictureBox6.TabStop = false;
             this.pictureBox6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox6_MouseDown);
+            this.pictureBox6.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox7
             // 
@@ -981,6 +988,7 @@ namespace ChessProject
             this.pictureBox7.TabIndex = 124;
             this.pictureBox7.TabStop = false;
             this.pictureBox7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox7_MouseDown);
+            this.pictureBox7.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox8
             // 
@@ -991,6 +999,7 @@ namespace ChessProject
             this.pictureBox8.TabIndex = 125;
             this.pictureBox8.TabStop = false;
             this.pictureBox8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox8_MouseDown);
+            this.pictureBox8.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox9
             // 
@@ -1001,6 +1010,7 @@ namespace ChessProject
             this.pictureBox9.TabIndex = 126;
             this.pictureBox9.TabStop = false;
             this.pictureBox9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox9_MouseDown);
+            this.pictureBox9.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox10
             // 
@@ -1011,6 +1021,7 @@ namespace ChessProject
             this.pictureBox10.TabIndex = 134;
             this.pictureBox10.TabStop = false;
             this.pictureBox10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox10_MouseDown);
+            this.pictureBox10.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox11
             // 
@@ -1021,6 +1032,7 @@ namespace ChessProject
             this.pictureBox11.TabIndex = 133;
             this.pictureBox11.TabStop = false;
             this.pictureBox11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox11_MouseDown);
+            this.pictureBox11.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox12
             // 
@@ -1031,6 +1043,7 @@ namespace ChessProject
             this.pictureBox12.TabIndex = 132;
             this.pictureBox12.TabStop = false;
             this.pictureBox12.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox12_MouseDown);
+            this.pictureBox12.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox13
             // 
@@ -1041,6 +1054,7 @@ namespace ChessProject
             this.pictureBox13.TabIndex = 131;
             this.pictureBox13.TabStop = false;
             this.pictureBox13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox13_MouseDown);
+            this.pictureBox13.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox14
             // 
@@ -1051,6 +1065,7 @@ namespace ChessProject
             this.pictureBox14.TabIndex = 130;
             this.pictureBox14.TabStop = false;
             this.pictureBox14.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox14_MouseDown);
+            this.pictureBox14.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox15
             // 
@@ -1061,6 +1076,7 @@ namespace ChessProject
             this.pictureBox15.TabIndex = 129;
             this.pictureBox15.TabStop = false;
             this.pictureBox15.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox15_MouseDown);
+            this.pictureBox15.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox16
             // 
@@ -1071,6 +1087,7 @@ namespace ChessProject
             this.pictureBox16.TabIndex = 128;
             this.pictureBox16.TabStop = false;
             this.pictureBox16.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox16_MouseDown);
+            this.pictureBox16.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox17
             // 
@@ -1081,6 +1098,7 @@ namespace ChessProject
             this.pictureBox17.TabIndex = 127;
             this.pictureBox17.TabStop = false;
             this.pictureBox17.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox17_MouseDown);
+            this.pictureBox17.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox18
             // 
@@ -1091,6 +1109,7 @@ namespace ChessProject
             this.pictureBox18.TabIndex = 142;
             this.pictureBox18.TabStop = false;
             this.pictureBox18.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox18_MouseDown);
+            this.pictureBox18.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox19
             // 
@@ -1101,6 +1120,7 @@ namespace ChessProject
             this.pictureBox19.TabIndex = 141;
             this.pictureBox19.TabStop = false;
             this.pictureBox19.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox19_MouseDown);
+            this.pictureBox19.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox20
             // 
@@ -1111,6 +1131,7 @@ namespace ChessProject
             this.pictureBox20.TabIndex = 140;
             this.pictureBox20.TabStop = false;
             this.pictureBox20.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox20_MouseDown);
+            this.pictureBox20.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox21
             // 
@@ -1121,6 +1142,7 @@ namespace ChessProject
             this.pictureBox21.TabIndex = 139;
             this.pictureBox21.TabStop = false;
             this.pictureBox21.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox21_MouseDown);
+            this.pictureBox21.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox22
             // 
@@ -1131,6 +1153,7 @@ namespace ChessProject
             this.pictureBox22.TabIndex = 138;
             this.pictureBox22.TabStop = false;
             this.pictureBox22.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox22_MouseDown);
+            this.pictureBox22.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox24
             // 
@@ -1141,6 +1164,7 @@ namespace ChessProject
             this.pictureBox24.TabIndex = 137;
             this.pictureBox24.TabStop = false;
             this.pictureBox24.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox24_MouseDown);
+            this.pictureBox24.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox25
             // 
@@ -1151,6 +1175,7 @@ namespace ChessProject
             this.pictureBox25.TabIndex = 136;
             this.pictureBox25.TabStop = false;
             this.pictureBox25.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox25_MouseDown);
+            this.pictureBox25.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox26
             // 
@@ -1161,6 +1186,7 @@ namespace ChessProject
             this.pictureBox26.TabIndex = 135;
             this.pictureBox26.TabStop = false;
             this.pictureBox26.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox26_MouseDown);
+            this.pictureBox26.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox29
             // 
@@ -1171,6 +1197,7 @@ namespace ChessProject
             this.pictureBox29.TabIndex = 148;
             this.pictureBox29.TabStop = false;
             this.pictureBox29.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox29_MouseDown);
+            this.pictureBox29.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox30
             // 
@@ -1181,6 +1208,7 @@ namespace ChessProject
             this.pictureBox30.TabIndex = 147;
             this.pictureBox30.TabStop = false;
             this.pictureBox30.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox30_MouseDown);
+            this.pictureBox30.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox31
             // 
@@ -1191,6 +1219,7 @@ namespace ChessProject
             this.pictureBox31.TabIndex = 146;
             this.pictureBox31.TabStop = false;
             this.pictureBox31.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox31_MouseDown);
+            this.pictureBox31.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox32
             // 
@@ -1201,6 +1230,7 @@ namespace ChessProject
             this.pictureBox32.TabIndex = 145;
             this.pictureBox32.TabStop = false;
             this.pictureBox32.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox32_MouseDown);
+            this.pictureBox32.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox33
             // 
@@ -1211,6 +1241,7 @@ namespace ChessProject
             this.pictureBox33.TabIndex = 144;
             this.pictureBox33.TabStop = false;
             this.pictureBox33.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox33_MouseDown);
+            this.pictureBox33.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // pictureBox34
             // 
@@ -1221,6 +1252,7 @@ namespace ChessProject
             this.pictureBox34.TabIndex = 143;
             this.pictureBox34.TabStop = false;
             this.pictureBox34.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox34_MouseDown);
+            this.pictureBox34.Move += new System.EventHandler(this.pictureBox1_Move);
             // 
             // label4
             // 

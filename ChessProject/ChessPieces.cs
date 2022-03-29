@@ -59,12 +59,10 @@ namespace ChessProject
             {
                 for (int i = 1; i < 9 - X; i++)
                 {
-
                     if (x == X + i && y == Y)
                     {
                         for (int o = 1; o < x - X; o++)
                         {
-
                             for (int a = 0; a < white.Count; a++)
                             {
                                 if (name == Color.white)
@@ -85,7 +83,6 @@ namespace ChessProject
                                         return false;
                                     }
                                 }
-
                             }
                             for (int b = 0; b < black.Count; b++)
                             {
@@ -107,14 +104,10 @@ namespace ChessProject
                                         return false;
                                     }
                                 }
-
                             }
                         }
-
                         return true;
-
                     }
-
                 }
                 for (int i = 1; i < 9 - Y; i++)
                 {
@@ -1285,7 +1278,7 @@ namespace ChessProject
                     {
                         return false;
                     }
-                    if (AllowedMovesKing(x + 1, y, black, white, Color.black) == false)
+                    if (AllowedMovesKing(x - 1, y, black, white, Color.black) == false)
                     {
                         return false;
                     }
@@ -1305,7 +1298,7 @@ namespace ChessProject
                     {
                         return false;
                     }
-                    if (AllowedMovesKing(x + 1, y, white, black, Color.white) == false)
+                    if (AllowedMovesKing(x - 1, y, white, black, Color.white) == false)
                     {
                         return false;
                     }
@@ -1362,7 +1355,7 @@ namespace ChessProject
                             newBlack.Add(z);
                         }
                         newBlack.RemoveAt(i);
-                        ChessPieces check = ChessPieces.TypeOfPieces(white[0].X, white[0].Y, newBlack, black, ChessPieces.Color.black);
+                        ChessPieces check = ChessPieces.TypeOfPieces(newBlack[0].X, newBlack[0].Y, white, newBlack, ChessPieces.Color.white);
                         int a = check.X;
                         int b = check.Y;
                         if (this.Cover(x, y, check, white[0], newBlack, black) == true || (x == a && y == b))
@@ -1445,7 +1438,7 @@ namespace ChessProject
                         int l = newBlack[i].Y;
                         newBlack[i].X = x;
                         newBlack[i].Y = y;
-                        for (int o = 0; o < newBlack.Count; o++)
+                        for (int o = 0; o < neWhite.Count; o++)
                         {
                             if (x == neWhite[o].X && y == neWhite[o].Y)
                             {
