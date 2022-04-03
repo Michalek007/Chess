@@ -124,7 +124,7 @@ namespace ChessProject
             {
                 for (int o = 0; o < 8; o++)
                 {
-                    if (Cursor.Position.X >= 50 + i * 72 && Cursor.Position.X <= 50 + 66 + i * 72 && Cursor.Position.Y >= 25 + o * 72 && Cursor.Position.Y <= 25 + 66 + o * 72)
+                    if (Cursor.Position.X >= 50 + i * 72 && Cursor.Position.X <= 50 + 66 + i * 72 && Cursor.Position.Y >= 40 + o * 72 && Cursor.Position.Y <= 40 + 66 + o * 72)
                     {
                         int x = ChessPieces.ConvertX(50 + i * 72);
                         int y = ChessPieces.ConvertY(25 + o * 72);
@@ -240,7 +240,7 @@ namespace ChessProject
                                                         else { white[0].Box.BackColor = dark; }
 
                                                         white[r].Box.Top = 25 + o * 72;
-                                                        white[r].Box.Left = 50 + i * 72;
+                                                        white[r].Box.Left = 50 + (i-1) * 72;
                                                         white[r].X = x - 1;
                                                         white[r].Y = y;
                                                         if (white[r].X % 2 != 0 && y % 2 == 0 || white[r].X % 2 == 0 && y % 2 != 0)
@@ -467,7 +467,7 @@ namespace ChessProject
                                                         else { black[c].Box.BackColor = dark; }
 
                                                         black[r].Box.Top = 25 + o * 72;
-                                                        black[r].Box.Left = 50 + i * 72;
+                                                        black[r].Box.Left = 50 + (i - 1) * 72;
                                                         black[r].X = x - 1;
                                                         black[r].Y = y;
                                                         if (black[r].X % 2 != 0 && y % 2 == 0 || black[r].X % 2 == 0 && y % 2 != 0)
@@ -503,7 +503,7 @@ namespace ChessProject
                                                         else { black[c].Box.BackColor = dark; }
 
                                                         black[r].Box.Top = 25 + o * 72;
-                                                        black[r].Box.Left = 50 + i * 72;
+                                                        black[r].Box.Left = 50 + (i + 1) * 72;
                                                         black[r].X = x + 1;
                                                         black[r].Y = y;
                                                         if (black[r].X % 2 != 0 && y % 2 == 0 || black[r].X % 2 == 0 && y % 2 != 0)
