@@ -124,7 +124,7 @@ namespace ChessProject
             {
                 for (int o = 0; o < 8; o++)
                 {
-                    if (Cursor.Position.X >= 50 + i * 72 && Cursor.Position.X <= 50 + 66 + i * 72 && Cursor.Position.Y >= 25 + o * 72 && Cursor.Position.Y <= 25 + 66 + o * 72)
+                    if (Cursor.Position.X >= 50 + i * 72 && Cursor.Position.X <= 50 + 66 + i * 72 && Cursor.Position.Y >= 40 + o * 72 && Cursor.Position.Y <= 40 + 66 + o * 72)
                     {
                         int x = ChessPieces.ConvertX(50 + i * 72);
                         int y = ChessPieces.ConvertY(25 + o * 72);

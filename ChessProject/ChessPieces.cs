@@ -1219,7 +1219,7 @@ namespace ChessProject
                         return false;
                     }
 
-                }               
+                }
                 if (name == Color.white)
                 {
                     if (AllowedMovesKing(x, y, black, white, Color.black) == false)
@@ -1320,13 +1320,13 @@ namespace ChessProject
 
         public bool Block(int x, int y, List<ChessPieces> white, List<ChessPieces> black, Color name, int use)
         {
-            if ( name == Color.white && use != 1)
+            if (name == Color.white && use != 1)
             {
-                for (int i =0; i < white.Count; i++)
+                for (int i = 0; i < white.Count; i++)
                 {
-                    if( X == white[i].X && Y == white[i].Y)
-                    {                        
-                        List<ChessPieces> neWhite = new List<ChessPieces> ();
+                    if (X == white[i].X && Y == white[i].Y)
+                    {
+                        List<ChessPieces> neWhite = new List<ChessPieces>();
                         foreach (ChessPieces z in white)
                         {
                             neWhite.Add(z);
@@ -1335,7 +1335,7 @@ namespace ChessProject
                         ChessPieces check = ChessPieces.TypeOfPieces(white[0].X, white[0].Y, neWhite, black, ChessPieces.Color.black);
                         int a = check.X;
                         int b = check.Y;
-                        if (this.Cover(x,y,check,white[0],neWhite,black) == true || (x ==a && y ==b))
+                        if (this.Cover(x, y, check, white[0], neWhite, black) == true || (x == a && y == b))
                         {
                             neWhite.Clear();
                             return true;
@@ -1347,7 +1347,7 @@ namespace ChessProject
                         }
                         neWhite.Clear();
                     }
-                    
+
                 }
             }
             if (name == Color.black && use != 1)
@@ -1362,7 +1362,7 @@ namespace ChessProject
                             newBlack.Add(z);
                         }
                         newBlack.RemoveAt(i);
-                        ChessPieces check = ChessPieces.TypeOfPieces(white[0].X, white[0].Y, newBlack, black, ChessPieces.Color.black);
+                        ChessPieces check = ChessPieces.TypeOfPieces(newBlack[0].X, newBlack[0].Y, white, newBlack, ChessPieces.Color.white);
                         int a = check.X;
                         int b = check.Y;
                         if (this.Cover(x, y, check, white[0], newBlack, black) == true || (x == a && y == b))
@@ -1400,12 +1400,12 @@ namespace ChessProject
                         int l = neWhite[i].Y;
                         neWhite[i].X = x;
                         neWhite[i].Y = y;
-                        for (int o= 0; o < newBlack.Count; o++)
+                        for (int o = 0; o < newBlack.Count; o++)
                         {
                             if (x == newBlack[o].X && y == newBlack[o].Y)
                             {
                                 newBlack.RemoveAt(o);
-                                
+
                             }
 
                         }
@@ -1445,7 +1445,7 @@ namespace ChessProject
                         int l = newBlack[i].Y;
                         newBlack[i].X = x;
                         newBlack[i].Y = y;
-                        for (int o = 0; o < newBlack.Count; o++)
+                        for (int o = 0; o < neWhite.Count; o++)
                         {
                             if (x == neWhite[o].X && y == neWhite[o].Y)
                             {
@@ -1473,6 +1473,7 @@ namespace ChessProject
             }
             return true;
         }
+
 
         public bool Cover(int x, int y, ChessPieces name, ChessPieces king, List<ChessPieces> white, List<ChessPieces> black)
         {
