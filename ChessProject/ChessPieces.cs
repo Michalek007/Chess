@@ -1278,7 +1278,7 @@ namespace ChessProject
                     {
                         return false;
                     }
-                    if (AllowedMovesKing(x - 1, y, black, white, Color.black) == false)
+                    if (AllowedMovesKing(x + 1, y, black, white, Color.black) == false)
                     {
                         return false;
                     }
@@ -1298,7 +1298,7 @@ namespace ChessProject
                     {
                         return false;
                     }
-                    if (AllowedMovesKing(x - 1, y, white, black, Color.white) == false)
+                    if (AllowedMovesKing(x + 1, y, white, black, Color.white) == false)
                     {
                         return false;
                     }
