@@ -1222,6 +1222,8 @@ namespace ChessProject
             }
             counter = 0;
             turn = 1;
+            castleB = 0;
+            castleW = 0;
             label4.Text = moves[0];
             moves.Clear();
         }
