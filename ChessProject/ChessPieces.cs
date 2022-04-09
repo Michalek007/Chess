@@ -1008,7 +1008,7 @@ namespace ChessProject
             else if (this.GetType() == typeof(Pone))
             {
                 if (use == 0)
-                {
+                {   
                     if (name == Color.white)
                     {
                         if (x == X && y == Y + 1)

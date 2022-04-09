@@ -324,7 +324,7 @@ namespace ChessProject
                                 }
                             }
                         }
-                        if (turn == 0)
+                        else
                         {
                             int c = dragging;
                             if (ChessPieces.AllowedMovesKing(black[0].X, black[0].Y, white, black, ChessPieces.Color.white) == false)
