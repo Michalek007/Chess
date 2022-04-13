@@ -12,6 +12,7 @@ using System.IO;
 namespace ChessProject
 { 
     using fColor = ChessPieces.Color;
+    using fType = ChessPieces.Type;
     public partial class Form1 : Form
     {
         private int dragging;
@@ -34,41 +35,41 @@ namespace ChessProject
             List<string> list_moves = new List<string>();
             List<ChessPieces> chessPieces = new List<ChessPieces>()
             {
-                new King(5,1,fColor.white, pictureBox23),
-                new Queen(4,1,fColor.white, pictureBox1),
-                new Bishop(3,1,fColor.white,pictureBox2),
-                new Bishop(6,1,fColor.white,pictureBox3),
-                new Knight(2,1,fColor.white,pictureBox4),
-                new Knight(7,1,fColor.white,pictureBox5),
-                new Rook(8,1,fColor.white,pictureBox6),
-                new Rook(1,1,fColor.white,pictureBox7),
-                new Pone(1,2,fColor.white,pictureBox8),
-                new Pone(2,2,fColor.white,pictureBox9),
-                new Pone(3,2,fColor.white,pictureBox17),
-                new Pone(4,2,fColor.white,pictureBox16),
-                new Pone(5,2,fColor.white,pictureBox15),
-                new Pone(6,2,fColor.white,pictureBox14),
-                new Pone(7,2,fColor.white,pictureBox13),
-                new Pone(8,2,fColor.white,pictureBox12),
+                new ChessPieces(5,1, fType.king, fColor.white, pictureBox23),
+                new ChessPieces(4,1,fType.queen, fColor.white, pictureBox1),
+                new ChessPieces(3,1,fType.bishop,fColor.white,pictureBox2),
+                new ChessPieces(6,1,fType.bishop,fColor.white,pictureBox3),
+                new ChessPieces(2,1,fType.knight,fColor.white,pictureBox4),
+                new ChessPieces(7,1,fType.knight,fColor.white,pictureBox5),
+                new ChessPieces(8,1,fType.rook,fColor.white,pictureBox6),
+                new ChessPieces(1,1,fType.rook,fColor.white,pictureBox7),
+                new ChessPieces(1,2,fType.pone,fColor.white,pictureBox8),
+                new ChessPieces(2,2,fType.pone,fColor.white,pictureBox9),
+                new ChessPieces(3,2,fType.pone,fColor.white,pictureBox17),
+                new ChessPieces(4,2,fType.pone,fColor.white,pictureBox16),
+                new ChessPieces(5,2,fType.pone,fColor.white,pictureBox15),
+                new ChessPieces(6,2,fType.pone,fColor.white,pictureBox14),
+                new ChessPieces(7,2,fType.pone,fColor.white,pictureBox13),
+                new ChessPieces(8,2,fType.pone,fColor.white,pictureBox12),
             };
             List<ChessPieces> chessPiecesBlack = new List<ChessPieces>()
             {
-                new King(5,8,fColor.black,pictureBox11),
-                new Queen(4,8,fColor.black,pictureBox10),
-                new Bishop(3,8,fColor.black,pictureBox26),
-                new Bishop(6,8,fColor.black,pictureBox25),
-                new Knight(2,8,fColor.black,pictureBox24),
-                new Knight(7,8,fColor.black,pictureBox22),
-                new Rook(8,8,fColor.black,pictureBox21),
-                new Rook(1,8,fColor.black,pictureBox20),
-                new Pone(1,7,fColor.black,pictureBox19),
-                new Pone(2,7,fColor.black,pictureBox18),
-                new Pone(3,7,fColor.black,pictureBox34),
-                new Pone(4,7,fColor.black,pictureBox33),
-                new Pone(5,7,fColor.black,pictureBox32),
-                new Pone(6,7,fColor.black,pictureBox31),
-                new Pone(7,7,fColor.black,pictureBox30),
-                new Pone(8,7,fColor.black,pictureBox29),
+                new ChessPieces(5,8,fType.king,fColor.black,pictureBox11),
+                new ChessPieces(4,8,fType.queen,fColor.black,pictureBox10),
+                new ChessPieces(3,8,fType.bishop,fColor.black,pictureBox26),
+                new ChessPieces(6,8,fType.bishop,fColor.black,pictureBox25),
+                new ChessPieces(2,8,fType.knight,fColor.black,pictureBox24),
+                new ChessPieces(7,8,fType.knight,fColor.black,pictureBox22),
+                new ChessPieces(8,8,fType.rook,fColor.black,pictureBox21),
+                new ChessPieces(1,8,fType.rook,fColor.black,pictureBox20),
+                new ChessPieces(1,7,fType.pone,fColor.black,pictureBox19),
+                new ChessPieces(2,7,fType.pone,fColor.black,pictureBox18),
+                new ChessPieces(3,7,fType.pone,fColor.black,pictureBox34),
+                new ChessPieces(4,7,fType.pone,fColor.black,pictureBox33),
+                new ChessPieces(5,7,fType.pone,fColor.black,pictureBox32),
+                new ChessPieces(6,7,fType.pone,fColor.black,pictureBox31),
+                new ChessPieces(7,7,fType.pone,fColor.black,pictureBox30),
+                new ChessPieces(8,7,fType.pone,fColor.black,pictureBox29),
             };
             
             label2.Text = "Białe zaczynają.";
@@ -113,9 +114,9 @@ namespace ChessProject
             if (color == fColor.white)
             {
                 Position(x, y, o, i, color, dragging);
-                if (white[dragging].GetType() == typeof(Pone) && white[dragging].Y == 8 && use == 0)
+                if (white[dragging].fType == fType.pone && white[dragging].Y == 8 && use == 0)
                 {
-                    Queen queen = new Queen(white[dragging].X, white[dragging].Y, fColor.white, white[dragging].Box);
+                    ChessPieces queen = new ChessPieces(white[dragging].X, white[dragging].Y,fType.queen, fColor.white, white[dragging].Box);
                     queen.Box.Image = pictureBox1.Image;
                     white.RemoveAt(dragging);
                     white.Insert(dragging, queen);
@@ -131,9 +132,9 @@ namespace ChessProject
             if (color == fColor.black)
             {
                 Position(x, y, o, i, color, dragging);
-                if (black[dragging].GetType() == typeof(Pone) && black[dragging].Y == 1 && use == 0)
+                if (black[dragging].fType == fType.pone && black[dragging].Y == 1 && use == 0)
                 {
-                    Queen queen = new Queen(black[dragging].X, black[dragging].Y, fColor.black, black[dragging].Box);
+                    ChessPieces queen = new ChessPieces(black[dragging].X, black[dragging].Y, fType.queen, fColor.black, black[dragging].Box);
                     queen.Box.Image = pictureBox10.Image;
                     black.RemoveAt(dragging);
                     black.Insert(dragging, queen);
@@ -209,7 +210,7 @@ namespace ChessProject
         private void PictureBox23_DragDrop(object sender, DragEventArgs e)
         {
             label3.Text = (counter+1).ToString();
-            for (int i =0; i < 8; i++)
+            for (int i = 0; i < 8; i++)
             {
                 for (int o = 0; o < 8; o++)
                 {
@@ -237,7 +238,7 @@ namespace ChessProject
                                     return;
                                 }
                                 //ruch królem
-                                if (white[dragging].GetType() == typeof(King))
+                                if (white[dragging].fType == fType.king)
                                 {
                                     if (!white[0].AllowedMoves(x, y, white, black, white[0].color, 1))
                                     {
@@ -262,7 +263,6 @@ namespace ChessProject
                                     Move_(x, y, o, i, fColor.white, 0, dragging);
                                 }
                             }
-                            //wybrana figura to król
                             //roszada
                             if (white[dragging].Symbol == "Ke1" && castleW != 1)
                             {
@@ -310,18 +310,26 @@ namespace ChessProject
                                 return;
                             }
                             //warunki na ruch królem
-                            if (white[0].AllowedMoves(x, y, white, black, white[0].color, 1) == true && ChessPieces.AllowedMovesKing(x, y, black, white, fColor.black) == true )
+                            if (white[dragging].fType == fType.king)
                             {
-                                Move_(x, y, o, i, fColor.white, 1, dragging);
+                                if (!white[0].AllowedMoves(x, y, white, black, white[0].color, 1))
+                                {
+                                    return;
+                                }
+                                if (ChessPieces.AllowedMovesKing(x, y, black, white, fColor.black))
+                                {
+                                    Move_(x, y, o, i, fColor.white, 1, dragging);
+                                }
                             }
-
                             //wybrana figura nie jest królem
-                            if (white[dragging].AllowedMoves(x, y, white, black, fColor.white, 0) == true && white[dragging].Block(x, y, white, black, fColor.white, 0) == true)
+                            if (!white[dragging].Block(x, y, white, black, fColor.white, 0))
+                            {
+                                return;
+                            }
+                            if (white[dragging].AllowedMoves(x, y, white, black, fColor.white, 0))
                             {
                                 Move_(x, y, o, i, fColor.white, 0, dragging);
                             }
-
-
                         }
                         //ruch czarnych
                         if (turn == 2)
@@ -338,103 +346,106 @@ namespace ChessProject
                                 {
                                     label1.Text = "MAT- zwycięstwo białych!";
                                 }
-                                //ruch królem
-                                if (black[c].GetType() == typeof(King))
+                                if (!ChessPieces.AllowedMoves(x, y, black))
                                 {
-                                    if (black[c].AllowedMoves(x, y, white, black, fColor.black,1) == true && ChessPieces.AllowedMovesKing(x, y, white, black, fColor.white) == true && ChessPieces.AllowedMoves(x, y, black) == true)
+                                    return;
+                                }
+                                //ruch królem
+                                if (black[c].fType == fType.king)
+                                {
+                                    if (!black[c].AllowedMoves(x, y, white, black, fColor.black, 1))
                                     {
-                                        if (ChessPieces.AllowedMoves(x, y, black) == true)
-                                        {
-                                            Move_(x, y, o, i, fColor.black, 0, dragging);
-                                            castleB = 1;
-                                           
-                                        }
+                                        return;
+                                    }
+                                    if (ChessPieces.AllowedMovesKing(x, y, white, black, fColor.white))
+                                    {
+                                        Move_(x, y, o, i, fColor.black, 0, dragging);
+                                        castleB = 1;
                                     }
                                 }
                                 //ruch inną figurą
-                                else
+                                if (!black[c].AllowedMoves(x, y, white, black, fColor.black, 0))
                                 {
-                                    if (((x == a && y == b) == true || black[c].Cover(x, y, checkB, black[0], white, black) == true) && black[c].AllowedMoves(x, y, white, black, fColor.black,0) == true && black[c].Block(x, y, white, black, fColor.black, 1) == true)
+                                    return;
+                                }
+                                if (!black[c].Block(x, y, white, black, fColor.black, 1))
+                                {
+                                    return;
+                                }
+                                if (((x == a && y == b) == true || black[c].Cover(x, y, checkB, black[0], white, black) == true))
+                                {
+                                    Move_(x, y, o, i, fColor.black, 0, dragging);
+
+                                }
+                            }
+                            //roszada
+                            if (black[c].Symbol == "ke8" && castleB != 1)
+                            {
+                                for (int r = 0; r < black.Count; r++)
+                                {
+                                    if (black[r].Symbol == "rh8")
                                     {
-                                        Move_(x, y, o, i, fColor.black, 0, dragging);
-                                       
+                                        label7.Text = black[c].Castle(x, y, white, black, fColor.black).ToString();
+                                        if (black[c].Castle(x, y, white, black, fColor.black) == true)
+                                        {
+                                            Position(x, y, o, i, fColor.black, dragging);
+                                            Color_(x, y, fColor.black, dragging);
+                                            castleB = 1;
+
+                                            Position(x - 1, y, o, i - 1, fColor.black, r);
+                                            Color_(x - 1, y, fColor.black, r);
+                                            turn = 1;
+                                            label2.Text = "Ruch białych.";
+                                            MoveList(black[c].Symbol, x, y);
+                                        }
+                                    }
+                                }
+                                for (int r = 0; r < black.Count; r++)
+                                {
+                                    if (black[r].Symbol == "ra8")
+                                    {
+                                        label6.Text = black[c].CastleL(x, y, white, black, fColor.black).ToString();
+                                        if (black[c].CastleL(x, y, white, black, fColor.black) == true)
+                                        {
+                                            Position(x, y, o, i, fColor.black, dragging);
+                                            Color_(x, y, fColor.black, dragging);
+                                            castleB = 1;
+
+                                            Position(x + 1, y, o, i + 1, fColor.black, r);
+                                            Color_(x + 1, y, fColor.black, r);
+                                            turn = 1;
+                                            label2.Text = "Ruch białych.";
+                                            MoveList(black[c].Symbol, x, y);
+                                        }
                                     }
                                 }
                             }
-                            else
+                            if (!ChessPieces.AllowedMoves(x, y, black))
                             {
-                                if (black[c].GetType() == typeof(King))
+                                return;
+                            }
+                            //warunki na ruch królem
+                            if (black[c].fType == fType.king)
+                            {
+                                if (!black[c].AllowedMoves(x, y, white, black, fColor.black, 1))
                                 {
-                                    //roszada
-                                    if (black[c].X == 5 && black[c].Y == 8 && castleB != 1)
-                                    {                                     
-                                        for (int r = 0; r < black.Count; r++)
-                                        {
-                                            if (black[r].GetType() == typeof(Rook))
-                                            {
-                                                if (black[r].X == 8 && black[r].Y == 8)
-                                                {
-                                                    label7.Text = black[c].Castle(x, y, white, black, fColor.black).ToString();
-                                                    if (black[c].Castle(x, y, white, black, fColor.black) == true)
-                                                    {
-                                                        Position(x, y, o, i, fColor.black, dragging);
-                                                        Color_(x, y, fColor.black, dragging);
-                                                        castleB = 1;
-
-                                                        Position(x - 1, y, o, i - 1, fColor.black, r);
-                                                        Color_(x - 1, y, fColor.black, r);
-                                                        turn = 1;
-                                                        label2.Text = "Ruch białych.";
-                                                        MoveList(black[c].Symbol, x, y);
-                                                    }
-                                                }
-                                            }
-                                        }
-                                        for (int r = 0; r < black.Count; r++)
-                                        {
-                                            if (black[r].GetType() == typeof(Rook))
-                                            {                                               
-                                                if (black[r].X == 1 && black[r].Y == 8)
-                                                {
-                                                    label6.Text = black[c].CastleL(x, y, white, black, fColor.black).ToString();
-                                                    if (black[c].CastleL(x, y, white, black, fColor.black) == true)
-                                                    {
-                                                        Position(x, y, o, i, fColor.black, dragging);
-                                                        Color_(x, y, fColor.black, dragging);
-                                                        castleB = 1;
-
-                                                        Position(x + 1, y, o, i + 1, fColor.black, r);
-                                                        Color_(x + 1, y, fColor.black, r);
-                                                        turn = 1;
-                                                        label2.Text = "Ruch białych.";
-                                                        MoveList(black[c].Symbol, x, y);
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                    //warunki na ruch królem
-                                    if (black[c].AllowedMoves(x, y, white, black, fColor.black,1) == true && ChessPieces.AllowedMovesKing(x, y, white, black, fColor.white) == true)
-                                    {                                    
-                                        if (ChessPieces.AllowedMoves(x, y, black) == true)
-                                        {
-                                            Move_(x, y, o, i, fColor.black, 1, dragging);
-                                            castleB = 1;
-                                        }
-                                    }
-                                }
-                                else
+                                    return;
+                                }                              
+                                if (ChessPieces.AllowedMovesKing(x, y, white, black, fColor.white))
                                 {
-                                    //wybrana figura nie jest królem
-                                    if (black[c].AllowedMoves(x, y, white, black, fColor.black,0) == true && black[c].Block(x,y, white, black, fColor.black,0) == true)
-                                    {
-                                        if (ChessPieces.AllowedMoves(x, y, black) == true)
-                                        {
-                                            Move_(x, y, o, i, fColor.black, 0, dragging);
-
-                                        }
-                                    }
+                                    Move_(x, y, o, i, fColor.black, 1, dragging);
+                                    castleB = 1;
+                                    
                                 }
+                            }
+                            //wybrana figura nie jest królem
+                            if (!black[c].Block(x, y, white, black, fColor.black, 0))
+                            {
+                                return;
+                            }
+                            if (black[c].AllowedMoves(x, y, white, black, fColor.black, 0))
+                            {
+                                Move_(x, y, o, i, fColor.black, 0, dragging);
                             }
                         }
                     }
@@ -798,41 +809,41 @@ namespace ChessProject
         {
             List<ChessPieces> chessPieces = new List<ChessPieces>()
             {
-                new King(5,1,fColor.white, pictureBox23),
-                new Queen(4,1,fColor.white, pictureBox1),
-                new Bishop(3,1,fColor.white,pictureBox2),
-                new Bishop(6,1,fColor.white,pictureBox3),
-                new Knight(2,1,fColor.white,pictureBox4),
-                new Knight(7,1,fColor.white,pictureBox5),
-                new Rook(8,1,fColor.white,pictureBox6),
-                new Rook(1,1,fColor.white,pictureBox7),
-                new Pone(1,2,fColor.white,pictureBox8),
-                new Pone(2,2,fColor.white,pictureBox9),
-                new Pone(3,2,fColor.white,pictureBox17),
-                new Pone(4,2,fColor.white,pictureBox16),
-                new Pone(5,2,fColor.white,pictureBox15),
-                new Pone(6,2,fColor.white,pictureBox14),
-                new Pone(7,2,fColor.white,pictureBox13),
-                new Pone(8,2,fColor.white,pictureBox12),
+                new ChessPieces(5,1, fType.king, fColor.white, pictureBox23),
+                new ChessPieces(4,1,fType.queen, fColor.white, pictureBox1),
+                new ChessPieces(3,1,fType.bishop,fColor.white,pictureBox2),
+                new ChessPieces(6,1,fType.bishop,fColor.white,pictureBox3),
+                new ChessPieces(2,1,fType.knight,fColor.white,pictureBox4),
+                new ChessPieces(7,1,fType.knight,fColor.white,pictureBox5),
+                new ChessPieces(8,1,fType.rook,fColor.white,pictureBox6),
+                new ChessPieces(1,1,fType.rook,fColor.white,pictureBox7),
+                new ChessPieces(1,2,fType.pone,fColor.white,pictureBox8),
+                new ChessPieces(2,2,fType.pone,fColor.white,pictureBox9),
+                new ChessPieces(3,2,fType.pone,fColor.white,pictureBox17),
+                new ChessPieces(4,2,fType.pone,fColor.white,pictureBox16),
+                new ChessPieces(5,2,fType.pone,fColor.white,pictureBox15),
+                new ChessPieces(6,2,fType.pone,fColor.white,pictureBox14),
+                new ChessPieces(7,2,fType.pone,fColor.white,pictureBox13),
+                new ChessPieces(8,2,fType.pone,fColor.white,pictureBox12),
             };
             List<ChessPieces> chessPiecesBlack = new List<ChessPieces>()
             {
-                new King(5,8,fColor.black,pictureBox11),
-                new Queen(4,8,fColor.black,pictureBox10),
-                new Bishop(3,8,fColor.black,pictureBox26),
-                new Bishop(6,8,fColor.black,pictureBox25),
-                new Knight(2,8,fColor.black,pictureBox24),
-                new Knight(7,8,fColor.black,pictureBox22),
-                new Rook(8,8,fColor.black,pictureBox21),
-                new Rook(1,8,fColor.black,pictureBox20),
-                new Pone(1,7,fColor.black,pictureBox19),
-                new Pone(2,7,fColor.black,pictureBox18),
-                new Pone(3,7,fColor.black,pictureBox34),
-                new Pone(4,7,fColor.black,pictureBox33),
-                new Pone(5,7,fColor.black,pictureBox32),
-                new Pone(6,7,fColor.black,pictureBox31),
-                new Pone(7,7,fColor.black,pictureBox30),
-                new Pone(8,7,fColor.black,pictureBox29),
+                new ChessPieces(5,8,fType.king,fColor.black,pictureBox11),
+                new ChessPieces(4,8,fType.queen,fColor.black,pictureBox10),
+                new ChessPieces(3,8,fType.bishop,fColor.black,pictureBox26),
+                new ChessPieces(6,8,fType.bishop,fColor.black,pictureBox25),
+                new ChessPieces(2,8,fType.knight,fColor.black,pictureBox24),
+                new ChessPieces(7,8,fType.knight,fColor.black,pictureBox22),
+                new ChessPieces(8,8,fType.rook,fColor.black,pictureBox21),
+                new ChessPieces(1,8,fType.rook,fColor.black,pictureBox20),
+                new ChessPieces(1,7,fType.pone,fColor.black,pictureBox19),
+                new ChessPieces(2,7,fType.pone,fColor.black,pictureBox18),
+                new ChessPieces(3,7,fType.pone,fColor.black,pictureBox34),
+                new ChessPieces(4,7,fType.pone,fColor.black,pictureBox33),
+                new ChessPieces(5,7,fType.pone,fColor.black,pictureBox32),
+                new ChessPieces(6,7,fType.pone,fColor.black,pictureBox31),
+                new ChessPieces(7,7,fType.pone,fColor.black,pictureBox30),
+                new ChessPieces(8,7,fType.pone,fColor.black,pictureBox29),
             };
 
             label2.Text = "Białe zaczynają.";

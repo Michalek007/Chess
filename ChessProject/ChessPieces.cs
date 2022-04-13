@@ -33,13 +33,14 @@ namespace ChessProject
         }       
         public Color color { get; set; }
         public Type fType { get; set; }
-        ChessPieces(int x, int y, Type type, Color fcolor, PictureBox box)
+        public ChessPieces(int x, int y, Type type, Color fcolor, PictureBox box)
         {
             X = x;
             Y = y;
             fType = type;
             color = fcolor;
             Box = box;
+            Symbol = "";
             if (type == Type.king)
             {
                 if (fcolor == Color.white)
@@ -360,7 +361,7 @@ namespace ChessProject
                         return true;
                     }
                 }
-                if (this.GetType() == typeof(Rook))
+                if (fType == Type.rook)
                 {
                     return false;
                 }
