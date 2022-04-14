@@ -22,8 +22,96 @@ namespace ChessProject
             black,
             white
         }
-        public Color color {get;set;}
-
+        public enum Type
+        {
+            king,
+            queen,
+            bishop,
+            knight,
+            rook,
+            pone
+        }       
+        public Color color { get; set; }
+        public Type fType { get; set; }
+        public ChessPieces(int x, int y, Type type, Color fcolor, PictureBox box)
+        {
+            X = x;
+            Y = y;
+            fType = type;
+            color = fcolor;
+            Box = box;
+            Symbol = "";
+            if (type == Type.king)
+            {
+                if (fcolor == Color.white)
+                {
+                    Symbol.Append('K');
+                }
+                if (fcolor == Color.black)
+                {
+                    Symbol.Append('k');
+                }
+            }
+            if (type == Type.queen)
+            {
+                if (fcolor == Color.white)
+                {
+                    Symbol.Append('Q');
+                }
+                if (fcolor == Color.black)
+                {
+                    Symbol.Append('q');
+                }
+            }
+            if (type == Type.bishop)
+            {
+                if (fcolor == Color.white)
+                {
+                    Symbol.Append('B');
+                }
+                if (fcolor == Color.black)
+                {
+                    Symbol.Append('b');
+                }
+            }
+            if (type == Type.knight)
+            {
+                if (fcolor == Color.white)
+                {
+                    Symbol.Append('N');
+                }
+                if (fcolor == Color.black)
+                {
+                    Symbol.Append('n');
+                }
+            }
+            if (type == Type.rook)
+            {
+                if (fcolor == Color.white)
+                {
+                    Symbol.Append('R');
+                }
+                if (fcolor == Color.black)
+                {
+                    Symbol.Append('r');
+                }
+            }      
+            if (type == Type.pone)
+            {
+                if (fcolor == Color.white)
+                {
+                    Symbol.Append('P');
+                }
+                if (fcolor == Color.black)
+                {
+                    Symbol.Append('p');
+                }
+            }         
+            char v = (char)(y+48);
+            char h = (char)(x+96);
+            Symbol.Append(h);
+            Symbol.Append(v);     
+        }
         public static bool AllowedMoves(int x, int y, List<ChessPieces> pieces)
         {
             for (int i = 0; i < pieces.Count; i++)
@@ -36,7 +124,6 @@ namespace ChessProject
             }
             return true;
         }
-
         public bool AllowedMoves(int x, int y, List<ChessPieces> white, List<ChessPieces> black, Color name, int use)
         {
             if (x > 8)
@@ -55,16 +142,14 @@ namespace ChessProject
             {
                 return false;
             }
-            if (this.GetType() == typeof(Queen) || this.GetType() == typeof(Rook))
+            if (fType == Type.queen || fType == Type.rook)
             {
                 for (int i = 1; i < 9 - X; i++)
                 {
-
                     if (x == X + i && y == Y)
                     {
                         for (int o = 1; o < x - X; o++)
                         {
-
                             for (int a = 0; a < white.Count; a++)
                             {
                                 if (name == Color.white)
@@ -76,7 +161,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (white[a].GetType() == typeof(King))
+                                    if (white[a].fType == Type.king)
                                     {
 
                                     }
@@ -98,7 +183,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (black[b].GetType() == typeof(King))
+                                    if (black[b].fType == Type.king)
                                     {
 
                                     }
@@ -110,11 +195,9 @@ namespace ChessProject
 
                             }
                         }
-
                         return true;
 
                     }
-
                 }
                 for (int i = 1; i < 9 - Y; i++)
                 {
@@ -133,7 +216,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (white[a].GetType() == typeof(King))
+                                    if (white[a].fType == Type.king)
                                     {
 
                                     }
@@ -151,11 +234,10 @@ namespace ChessProject
                                     {
                                         return false;
                                     }
-
                                 }
                                 else
                                 {
-                                    if (black[b].GetType() == typeof(King))
+                                    if (black[b].fType == Type.king)
                                     {
 
                                     }
@@ -164,10 +246,8 @@ namespace ChessProject
                                         return false;
                                     }
                                 }
-
                             }
                         }
-
                         return true;
                     }
                 }
@@ -188,7 +268,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (white[a].GetType() == typeof(King))
+                                    if (white[a].fType == Type.king)
                                     {
 
                                     }
@@ -210,7 +290,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (black[b].GetType() == typeof(King))
+                                    if (black[b].fType == Type.king)
                                     {
 
                                     }
@@ -243,7 +323,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (white[a].GetType() == typeof(King))
+                                    if (white[a].fType == Type.king)
                                     {
 
                                     }
@@ -265,7 +345,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (black[b].GetType() == typeof(King))
+                                    if (black[b].fType == Type.king)
                                     {
 
                                     }
@@ -281,11 +361,12 @@ namespace ChessProject
                         return true;
                     }
                 }
-                if (this.GetType() == typeof(Rook)){
+                if (fType == Type.rook)
+                {
                     return false;
                 }
             }
-            if (this.GetType() == typeof(Queen) || this.GetType() == typeof(Bishop))
+            if (fType == Type.queen || fType == Type.bishop)
             {
                 for (int i = 1; i < 9; i++)
                 {
@@ -304,7 +385,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (white[a].GetType() == typeof(King))
+                                    if (white[a].fType == Type.king)
                                     {
 
                                     }
@@ -326,7 +407,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (black[b].GetType() == typeof(King))
+                                    if (black[b].fType == Type.king)
                                     {
 
                                     }
@@ -359,7 +440,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (white[a].GetType() == typeof(King))
+                                    if (white[a].fType == Type.king)
                                     {
 
                                     }
@@ -381,7 +462,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (black[b].GetType() == typeof(King))
+                                    if (black[b].fType == Type.king)
                                     {
 
                                     }
@@ -414,7 +495,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (white[a].GetType() == typeof(King))
+                                    if (white[a].fType == Type.king)
                                     {
 
                                     }
@@ -436,7 +517,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (black[b].GetType() == typeof(King))
+                                    if (black[b].fType == Type.king)
                                     {
 
                                     }
@@ -469,7 +550,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (white[a].GetType() == typeof(King))
+                                    if (white[a].fType == Type.king)
                                     {
 
                                     }
@@ -491,7 +572,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (black[b].GetType() == typeof(King))
+                                    if (black[b].fType == Type.king)
                                     {
 
                                     }
@@ -509,7 +590,7 @@ namespace ChessProject
                 }
                 return false;
             }
-            else if (this.GetType() == typeof(King))
+            if (fType == Type.king)
             {
 
                 if ((x == X || x == X + 1 || x == X - 1) && (y == Y || y == Y + 1 || y == Y - 1))
@@ -521,7 +602,7 @@ namespace ChessProject
                     return false;
                 }
             }
-            else if (this.GetType() == typeof(Knight))
+            if (fType == Type.knight)
             {
                 if (x == X + 2 && y == Y + 1)
                 {
@@ -560,10 +641,10 @@ namespace ChessProject
                     return false;
                 }
             }
-            else if (this.GetType() == typeof(Pone))
+            if (fType == Type.pone)
             {
                 if (use == 0)
-                {
+                {   
                     if (name == Color.white)
                     {
                         if (x == X && y == Y + 1)
@@ -692,12 +773,12 @@ namespace ChessProject
                 {
                     if (name == Color.white)
                     {
-                        if ((x == X + 1 || x == X -1) && y == Y + 1) 
+                        if ((x == X + 1 || x == X - 1) && y == Y + 1)
                         {
                             return true;
-                        }                                                  
+                        }
                     }
-                    if(name == Color.black)
+                    if (name == Color.black)
                     {
                         if ((x == X + 1 || x == X - 1) && y == Y - 1)
                         {
@@ -708,13 +789,9 @@ namespace ChessProject
                 }
                 return false;
             }
-            else
-            {
-                return false;
+            return false;
 
-            }
         }
-
         public static bool AllowedMovesKing(int x, int y, List<ChessPieces> pieces, List<ChessPieces> pieces2, Color name)
         {
             if (name == Color.white)
@@ -743,7 +820,6 @@ namespace ChessProject
 
             return true;
         }
-
         public bool Castle(int x, int y, List<ChessPieces> white, List<ChessPieces> black, Color name)
         {
             if ((x != 7 && y != 1) || (x != 7 && y != 8))
@@ -865,7 +941,6 @@ namespace ChessProject
             }
             return false;
         }
-
         public bool Block(int x, int y, List<ChessPieces> white, List<ChessPieces> black, Color name, int use)
         {
             if (name == Color.white && use != 1)
@@ -1021,8 +1096,6 @@ namespace ChessProject
             }
             return true;
         }
-
-
         public bool Cover(int x, int y, ChessPieces name, ChessPieces king, List<ChessPieces> white, List<ChessPieces> black)
         {
             if (name.color == Color.black)
@@ -1032,7 +1105,7 @@ namespace ChessProject
                     if (black[i].AllowedMoves(x, y, white, black, name.color, 0) == true)
                     {
                         int z = 0;
-                        z ++;
+                        z++;
                         if (z == 2)
                         {
                             return false;
@@ -1061,7 +1134,7 @@ namespace ChessProject
             }
             if (name.Y == king.Y && name.X < king.X)
             {
-                for (int i =1; i < king.X - name.X; i++)
+                for (int i = 1; i < king.X - name.X; i++)
                 {
                     if (x == name.X + i && y == name.Y)
                     {
@@ -1146,7 +1219,6 @@ namespace ChessProject
             }
             return false;
         }
-
         public static ChessPieces TypeOfPieces(int x, int y, List<ChessPieces> pieces, List<ChessPieces> pieces2, Color name)
         {
             if (name == Color.black)
@@ -1159,7 +1231,7 @@ namespace ChessProject
                     }
 
 
-                }                
+                }
             }
             else
             {
@@ -1175,12 +1247,10 @@ namespace ChessProject
             }
             return pieces[1];
         }
-
         //public static bool Sudoku(int x, int y, List<ChessPieces> white, List<ChessPieces> black, Color name)
         //{
         //    return false;
         //}
-
         public bool Mat(int a, int b, ChessPieces check, List<ChessPieces> white, List<ChessPieces> black, Color name)
         {
             if (name == Color.white)
@@ -1193,9 +1263,9 @@ namespace ChessProject
                         {
                             for (int l = 1; l < 9; l++)
                             {
-                                if (white[i].GetType() == typeof(King))
+                                if (white[i].fType == Type.king)
                                 {
-                                    if (white[i].AllowedMoves(o, l, white, black, white[0].color, 1) == true && ChessPieces.AllowedMovesKing(o,l, black, white, ChessPieces.Color.black) == true && ChessPieces.AllowedMoves(o, l, white) == true)
+                                    if (white[i].AllowedMoves(o, l, white, black, white[0].color, 1) == true && ChessPieces.AllowedMovesKing(o, l, black, white, ChessPieces.Color.black) == true && ChessPieces.AllowedMoves(o, l, white) == true)
                                     {
                                         return false;
                                     }
@@ -1207,7 +1277,7 @@ namespace ChessProject
                                         return false;
                                     }
                                 }
-                               
+
                             }
                         }
                     }
@@ -1223,7 +1293,7 @@ namespace ChessProject
                         {
                             for (int l = 1; l < 9; l++)
                             {
-                                if (black[i].GetType() == typeof(King))
+                                if (black[i].fType == Type.king)
                                 {
                                     if (black[i].AllowedMoves(o, l, white, black, ChessPieces.Color.black, 1) == true && ChessPieces.AllowedMovesKing(o, l, white, black, ChessPieces.Color.white) == true)
                                     {
@@ -1231,22 +1301,22 @@ namespace ChessProject
                                         {
                                             return false;
                                         }
-                                    }    
-                                }   
+                                    }
+                                }
                                 else
                                 {
                                     if (((o == a && l == b) == true || black[i].Cover(o, l, check, this, white, black) == true) && black[i].AllowedMoves(o, l, white, black, name, 0) == true && black[i].Block(o, l, white, black, name, 1) == true)
                                     {
                                         return false;
                                     }
-                                }                                   
+                                }
                             }
                         }
                     }
 
                 }
             }
-           
+
             return true;
 
 
@@ -1258,12 +1328,12 @@ namespace ChessProject
             {
                 if (x >= 50 + i * 72 && x <= 50 + 66 + i * 72)
                 {
-                    return i+1;
+                    return i + 1;
                 }
 
             }
             return 1;
-            
+
         }
         public static int ConvertY(int y)
         {
@@ -1320,7 +1390,7 @@ namespace ChessProject
             {
                 y = 8;
             }
-            else if (y ==2)
+            else if (y == 2)
             {
                 y = 7;
             }
@@ -1349,16 +1419,15 @@ namespace ChessProject
                 y = 1;
             }
             return 25 + (y-1) * 72;
-
         }
-
+      
         public static string ConvertToLetter(int x)
         {
             if (x == 1)
             {
                 return "A";
             }
-            else if ( x == 2)
+            else if (x == 2)
             {
                 return "B";
             }
@@ -1387,8 +1456,41 @@ namespace ChessProject
                 return "H";
             }
         }
-
+        public static int ConvertToNumber(char a)
+        {
+            if (a == 'A')
+            {
+                return 1;
+            }
+            else if (a == 'B')
+            {
+                return 2;
+            }
+            else if (a == 'C')
+            {
+                return 3;
+            }
+            else if (a == 'D')
+            {
+                return 4;
+            }
+            else if (a == 'E')
+            {
+                return 5;
+            }
+            else if (a == 'F')
+            {
+                return 6;
+            }
+            else if (a == 'G')
+            {
+                return 7;
+            }
+            else if (a == 'H')
+            {
+                return 8;
+            }
+            return 1;
+        }
     }
-
-    
 }
