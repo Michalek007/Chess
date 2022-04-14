@@ -2,18 +2,18 @@
 
 W klasie ChessPieces znajdują się wszystkie metody odpowiedzialne za sprawdzanie czy dany ruch jest legalny.
 
-Metoda 'public bool AllowedMoves(int x, int y, List<ChessPieces> white, List<ChessPieces> black, Color name, int use)'
+Metoda 'public bool AllowedMoves(...)'
 Zwraca wszystkie legalne ruchy daną figurą (pomijane są szachy, związania itp.)
 Bierze pod uwagę inne figury traktując je jako przeszkody.
   
 Metoda 'Cover':
-Zwraca true jeśli w momencie gdy król jest szachowany dana figura może stanąć pomiędzy królem a figurą szachującą.
+Zwraca true jeśli w momencie gdy król jest szachowany dana figura może się ruszyć na pozycję (x,y) znajdującą się pomiędzy królem a figurą szachującą.
 
 Metoda 'Block':
 Zwraca false jeśli po ruchu na pozycję (x,y) daną figurą nasz król był by szachowany.
 (w języku szachowym - sprawdza czy dana figura jest związana - przy wartości false jest związana)
 
-Metoda 'public static bool AllowedMoves(int x, int y, List<ChessPieces> pieces)':
+Metoda 'public static bool AllowedMoves(...)':
 Zwraca false, jeśli figura tego samego koloru znajduje się na pozycji (x,y)
    
 Metoda 'AllowedMovesKing':
