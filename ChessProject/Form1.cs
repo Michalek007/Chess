@@ -10,7 +10,9 @@ using System.Windows.Forms;
 using System.IO;
 
 namespace ChessProject
-{
+{ 
+    using fColor = ChessPieces.Color;
+    using fType = ChessPieces.Type;
     public partial class Form1 : Form
     {
         private int dragging;
@@ -33,41 +35,41 @@ namespace ChessProject
             List<string> list_moves = new List<string>();
             List<ChessPieces> chessPieces = new List<ChessPieces>()
             {
-                new King(5,1,ChessPieces.Color.white, pictureBox23),
-                new Queen(4,1,ChessPieces.Color.white, pictureBox1),
-                new Bishop(3,1,ChessPieces.Color.white,pictureBox2),
-                new Bishop(6,1,ChessPieces.Color.white,pictureBox3),
-                new Knight(2,1,ChessPieces.Color.white,pictureBox4),
-                new Knight(7,1,ChessPieces.Color.white,pictureBox5),
-                new Rook(8,1,ChessPieces.Color.white,pictureBox6),
-                new Rook(1,1,ChessPieces.Color.white,pictureBox7),
-                new Pone(1,2,ChessPieces.Color.white,pictureBox8),
-                new Pone(2,2,ChessPieces.Color.white,pictureBox9),
-                new Pone(3,2,ChessPieces.Color.white,pictureBox17),
-                new Pone(4,2,ChessPieces.Color.white,pictureBox16),
-                new Pone(5,2,ChessPieces.Color.white,pictureBox15),
-                new Pone(6,2,ChessPieces.Color.white,pictureBox14),
-                new Pone(7,2,ChessPieces.Color.white,pictureBox13),
-                new Pone(8,2,ChessPieces.Color.white,pictureBox12),
+                new ChessPieces(5,1, fType.king, fColor.white, pictureBox23),
+                new ChessPieces(4,1,fType.queen, fColor.white, pictureBox1),
+                new ChessPieces(3,1,fType.bishop,fColor.white,pictureBox2),
+                new ChessPieces(6,1,fType.bishop,fColor.white,pictureBox3),
+                new ChessPieces(2,1,fType.knight,fColor.white,pictureBox4),
+                new ChessPieces(7,1,fType.knight,fColor.white,pictureBox5),
+                new ChessPieces(8,1,fType.rook,fColor.white,pictureBox6),
+                new ChessPieces(1,1,fType.rook,fColor.white,pictureBox7),
+                new ChessPieces(1,2,fType.pone,fColor.white,pictureBox8),
+                new ChessPieces(2,2,fType.pone,fColor.white,pictureBox9),
+                new ChessPieces(3,2,fType.pone,fColor.white,pictureBox17),
+                new ChessPieces(4,2,fType.pone,fColor.white,pictureBox16),
+                new ChessPieces(5,2,fType.pone,fColor.white,pictureBox15),
+                new ChessPieces(6,2,fType.pone,fColor.white,pictureBox14),
+                new ChessPieces(7,2,fType.pone,fColor.white,pictureBox13),
+                new ChessPieces(8,2,fType.pone,fColor.white,pictureBox12),
             };
             List<ChessPieces> chessPiecesBlack = new List<ChessPieces>()
             {
-                new King(5,8,ChessPieces.Color.black,pictureBox11),
-                new Queen(4,8,ChessPieces.Color.black,pictureBox10),
-                new Bishop(3,8,ChessPieces.Color.black,pictureBox26),
-                new Bishop(6,8,ChessPieces.Color.black,pictureBox25),
-                new Knight(2,8,ChessPieces.Color.black,pictureBox24),
-                new Knight(7,8,ChessPieces.Color.black,pictureBox22),
-                new Rook(8,8,ChessPieces.Color.black,pictureBox21),
-                new Rook(1,8,ChessPieces.Color.black,pictureBox20),
-                new Pone(1,7,ChessPieces.Color.black,pictureBox19),
-                new Pone(2,7,ChessPieces.Color.black,pictureBox18),
-                new Pone(3,7,ChessPieces.Color.black,pictureBox34),
-                new Pone(4,7,ChessPieces.Color.black,pictureBox33),
-                new Pone(5,7,ChessPieces.Color.black,pictureBox32),
-                new Pone(6,7,ChessPieces.Color.black,pictureBox31),
-                new Pone(7,7,ChessPieces.Color.black,pictureBox30),
-                new Pone(8,7,ChessPieces.Color.black,pictureBox29),
+                new ChessPieces(5,8,fType.king,fColor.black,pictureBox11),
+                new ChessPieces(4,8,fType.queen,fColor.black,pictureBox10),
+                new ChessPieces(3,8,fType.bishop,fColor.black,pictureBox26),
+                new ChessPieces(6,8,fType.bishop,fColor.black,pictureBox25),
+                new ChessPieces(2,8,fType.knight,fColor.black,pictureBox24),
+                new ChessPieces(7,8,fType.knight,fColor.black,pictureBox22),
+                new ChessPieces(8,8,fType.rook,fColor.black,pictureBox21),
+                new ChessPieces(1,8,fType.rook,fColor.black,pictureBox20),
+                new ChessPieces(1,7,fType.pone,fColor.black,pictureBox19),
+                new ChessPieces(2,7,fType.pone,fColor.black,pictureBox18),
+                new ChessPieces(3,7,fType.pone,fColor.black,pictureBox34),
+                new ChessPieces(4,7,fType.pone,fColor.black,pictureBox33),
+                new ChessPieces(5,7,fType.pone,fColor.black,pictureBox32),
+                new ChessPieces(6,7,fType.pone,fColor.black,pictureBox31),
+                new ChessPieces(7,7,fType.pone,fColor.black,pictureBox30),
+                new ChessPieces(8,7,fType.pone,fColor.black,pictureBox29),
             };
             
             label2.Text = "Białe zaczynają.";
@@ -104,247 +106,197 @@ namespace ChessProject
         }
         private void MoveList(string symbol, int x, int y)
         {
-
             string move = symbol + ChessPieces.ConvertToLetter(x) + y;
             moves.Add(move);
+        }
+        private void Move_(int x, int y, int o, int i, fColor color, int use, int dragging)
+        {
+            if (color == fColor.white)
+            {
+                Position(x, y, o, i, color, dragging);
+                if (white[dragging].fType == fType.pone && white[dragging].Y == 8 && use == 0)
+                {
+                    ChessPieces queen = new ChessPieces(white[dragging].X, white[dragging].Y,fType.queen, fColor.white, white[dragging].Box);
+                    queen.Box.Image = pictureBox1.Image;
+                    white.RemoveAt(dragging);
+                    white.Insert(dragging, queen);
+
+                }
+                Color_(x, y, color, dragging);
+                Remove(x, y, fColor.white);
+                turn = 2;
+                counter++;
+                label2.Text = "Ruch czarnych.";
+                MoveList(white[dragging].Symbol, x, y);
+            }
+            if (color == fColor.black)
+            {
+                Position(x, y, o, i, color, dragging);
+                if (black[dragging].fType == fType.pone && black[dragging].Y == 1 && use == 0)
+                {
+                    ChessPieces queen = new ChessPieces(black[dragging].X, black[dragging].Y, fType.queen, fColor.black, black[dragging].Box);
+                    queen.Box.Image = pictureBox10.Image;
+                    black.RemoveAt(dragging);
+                    black.Insert(dragging, queen);
+                }
+                Color_(x, y, color, dragging);
+                Remove(x, y, fColor.black);
+                turn = 1;
+                label2.Text = "Ruch białych.";
+                MoveList(black[dragging].Symbol, x, y);
+            }          
+        }
+        private void Remove(int x, int y, fColor color )
+        {
+            if (color == fColor.white)
+            {
+                for (int f = 0; f < black.Count; f++)
+                {
+                    if (black[f].X == x && black[f].Y == y)
+                    {
+                        black[f].Box.Visible = false;
+                        black.RemoveAt(f);
+                    }
+                }
+            }
+            if (color == fColor.black)
+            {
+                for (int f = 0; f < white.Count; f++)
+                {
+                    if (white[f].X == x && white[f].Y == y)
+                    {
+                        white[f].Box.Visible = false;
+                        white.RemoveAt(f);
+                    }
+                }
+            }
+        }
+        private void Color_(int x, int y, fColor color, int dragging)
+        {
+            if (color == fColor.white)
+            {
+                if (x % 2 != 0 && y % 2 == 0 || x % 2 == 0 && y % 2 != 0)
+                {
+                    white[dragging].Box.BackColor = light;
+                }
+                else { white[dragging].Box.BackColor = dark; }
+            }
+            if (color == fColor.black)
+            {
+                if (x % 2 != 0 && y % 2 == 0 || x % 2 == 0 && y % 2 != 0)
+                {
+                    black[dragging].Box.BackColor = light;
+                }
+                else { black[dragging].Box.BackColor = dark; }
+            }         
+        }
+        private void Position(int x, int y,int o,int i, fColor color, int dragging)
+        {
+            if (color == fColor.white)
+            {
+                white[dragging].Box.Top = 25 + o * 94 + 10;
+                white[dragging].Box.Left = 50 + i * 99 + 10;
+                white[dragging].X = x;
+                white[dragging].Y = y;
+            }
+            if (color == fColor.black)
+            {
+                black[dragging].Box.Top = 25 + o * 94 + 10;
+                black[dragging].Box.Left = 50 + i * 99 + 10;
+                black[dragging].X = x;
+                black[dragging].Y = y;
+            }
         }
         private void PictureBox23_DragDrop(object sender, DragEventArgs e)
         {
             label3.Text = (counter+1).ToString();
-            for (int i =0; i < 8; i++)
+            for (int i = 0; i < 8; i++)
             {
                 for (int o = 0; o < 8; o++)
                 {
-                    if (Cursor.Position.X > 50 + i * 99 && Cursor.Position.X < 50 + 93 + i * 99 && Cursor.Position.Y > 25 + o * 94 && Cursor.Position.Y < 25 + 88 + o * 94)
+                    if (Cursor.Position.X > 50 + i * 99 && Cursor.Position.X < 50 + 93 + i * 99 && Cursor.Position.Y > 50 + o * 94 && Cursor.Position.Y < 50 + 88 + o * 94)
                     {
+                        //konwersja współrzędnych fizycznych na współrzędne szachowe 
                         int x = ChessPieces.ConvertX(50 + i * 99 + 10);
                         int y = ChessPieces.ConvertY(25 + o * 94 + 10);
+                        //ruch białych
                         if (turn == 1)
                         {
-                            King kingWhite = new King(white[0].X, white[0].Y, ChessPieces.Color.white, pictureBox23);
-                            if (ChessPieces.AllowedMovesKing(kingWhite.X, kingWhite.Y, black, white, ChessPieces.Color.black) == false)            
+                            //jeśli król jest pod szachem
+                            if (ChessPieces.AllowedMovesKing(white[0].X, white[0].Y, black, white, fColor.black) == false)            
                             {
-                                ChessPieces check = ChessPieces.TypeOfPieces(kingWhite.X, kingWhite.Y, white, black, ChessPieces.Color.black);
+                                ChessPieces check = ChessPieces.TypeOfPieces(white[0].X, white[0].Y, white, black, fColor.black);
                                 int a = check.X;
                                 int b = check.Y;
 
-                                if (kingWhite.Mat(a, b, check, white, black, ChessPieces.Color.white) == true)
+                                if (white[0].Mat(a, b, check, white, black, fColor.white) == true)
                                 {
                                     label1.Text = "MAT - zwycięstwo czarnych!";
                                 }
-                                if (white[dragging].GetType() == typeof(King))
+                                if (!ChessPieces.AllowedMoves(x, y, white))
                                 {
-                                    if (white[0].AllowedMoves(x, y, white, black, white[0].color,1) == true && ChessPieces.AllowedMovesKing(x, y, black, white, ChessPieces.Color.black) == true && ChessPieces.AllowedMoves(x,y,white) == true)
-                                    {
-                                        pictureBox23.Top = 25 + o * 94 + 10;
-                                        pictureBox23.Left = 50 + i * 99 + 10;
-                                        white[0].X = x;
-                                        white[0].Y = y;
-                                        castleW = 1;
-                                        if (x%2 != 0 && y%2 == 0 || x % 2 == 0 && y % 2 != 0)
-                                        {
-                                            white[0].Box.BackColor = light;
-                                        }
-                                        else { white[0].Box.BackColor = dark;}
-                                        for (int f = 0; f < black.Count; f++)
-                                        {
-                                            if (black[f].X == x && black[f].Y == y)
-                                            {
-                                                black[f].Box.Visible = false;
-                                                black.RemoveAt(f);
-                                            }
-                                        }
-                                        turn = 2;
-                                        counter++;
-                                        label2.Text = "Ruch czarnych.";
-                                        MoveList(white[dragging].Symbol, x, y);
-
-                                    }
-
+                                    return;
                                 }
-                                else
+                                //ruch królem
+                                if (white[dragging].fType == fType.king)
                                 {
-                                    //((x == a && y == b) == true || white[dragging].Cover(x, y, check, kingWhite, white, black) == true) && 
-                                    // && white[dragging].Block(x, y, white, black, ChessPieces.Color.white, 1) == true
-                                    label4.Text = white[dragging].Cover(x, y, check, kingWhite, white, black).ToString();
-                                    label5.Text = white[dragging].AllowedMoves(x, y, white, black, ChessPieces.Color.white, 0).ToString();
-                                    //label6.Text = white[dragging].Block(x, y, white, black, ChessPieces.Color.white, 1).ToString();
-                                    if (((x == a && y == b) == true || white[dragging].Cover(x, y, check, kingWhite, white, black) == true) && white[dragging].AllowedMoves(x, y, white, black, ChessPieces.Color.white, 0) == true && white[dragging].Block(x, y, white, black, ChessPieces.Color.white, 1) == true)
+                                    if (!white[0].AllowedMoves(x, y, white, black, white[0].color, 1))
                                     {
-                                        
-                                        white[dragging].Box.Top = 25 + o * 94 + 10;
-                                        white[dragging].Box.Left = 50 + i * 99 + 10;
-                                        white[dragging].X = x;
-                                        white[dragging].Y = y;
-                                        if (white[dragging].GetType() == typeof(Pone) && white[dragging].Y == 8)
-                                        {
-                                            Queen queen = new Queen(white[dragging].X, white[dragging].Y, ChessPieces.Color.white, white[dragging].Box);
-                                            queen.Box.Image = pictureBox1.Image;
-                                            white.RemoveAt(dragging);
-                                            white.Insert(dragging, queen);
-
-                                        }
-                                        if (x % 2 != 0 && y % 2 == 0 || x % 2 == 0 && y % 2 != 0)
-                                        {
-                                            white[dragging].Box.BackColor = light;
-                                        }
-                                        else { white[dragging].Box.BackColor = dark; }
-                                        for (int f = 0; f < black.Count; f++)
-                                        {
-                                            if (black[f].X == x && black[f].Y == y)
-                                            {                                       
-                                                black[f].Box.Visible = false;
-                                                black.RemoveAt(f);
-                                            }
-
-                                        }
-                                        turn = 2;
-                                        counter++;
-                                        label2.Text = "Ruch czarnych.";
-                                        MoveList(white[dragging].Symbol, x, y);
+                                        return;
+                                    }                              
+                                    if (ChessPieces.AllowedMovesKing(x, y, black, white, fColor.black))
+                                    {
+                                        Move_(x, y, o, i, fColor.white, 1, dragging);
                                     }
+                                }
+                                //ruch inną figurą
+                                if (!white[dragging].AllowedMoves(x, y, white, black, fColor.white, 0))
+                                {
+                                    return;
+                                }
+                                if (!white[dragging].Block(x, y, white, black, fColor.white, 1))
+                                {
+                                    return;
+                                }                              
+                                if (((x == a && y == b) == true || white[dragging].Cover(x, y, check, white[0], white, black) == true))
+                                {
+                                    Move_(x, y, o, i, fColor.white, 0, dragging);
                                 }
                             }
-                            else
+                            //roszada
+                            if (white[dragging].Symbol == "Ke1" && castleW != 1)
                             {
-                                if (white[dragging].GetType() == typeof(King))
-                                {                                  
-                                    if (white[0].X == 5 && white[0].Y == 1 && castleW != 1)
-                                    {                                     
-                                        for (int r = 0; r < white.Count; r++)
-                                        {
-                                            if (white[r].GetType() == typeof(Rook))
-                                            {
-                                                if (white[r].X == 8 && white[r].Y == 1)
-                                                {
-                                                    if (white[0].Castle(x, y, white, black, ChessPieces.Color.white) == true)
-                                                    {
-                                                        white[0].Box.Top = 25 + o * 94 + 10;
-                                                        white[0].Box.Left = 50 + i * 99 + 10;
-                                                        white[0].X = x;
-                                                        white[0].Y = y;
-                                                        castleW = 1;
-                                                        if (x % 2 != 0 && y % 2 == 0 || x % 2 == 0 && y % 2 != 0)
-                                                        {
-                                                            white[0].Box.BackColor = light;
-                                                        }
-                                                        else { white[0].Box.BackColor = dark; }
-
-                                                        white[r].Box.Top = 25 + o * 94 + 10;
-                                                        white[r].Box.Left = 50 + (i - 1) * 99 + 10;
-                                                        white[r].X = x - 1;
-                                                        white[r].Y = y;
-                                                        if (white[r].X % 2 != 0 && y % 2 == 0 || white[r].X % 2 == 0 && y % 2 != 0)
-                                                        {
-                                                            white[r].Box.BackColor = light;
-                                                        }
-                                                        else { white[r].Box.BackColor = dark; }
-                                                        turn = 2;
-                                                        counter++;
-                                                        label2.Text = "Ruch czarnych.";
-                                                        MoveList(white[dragging].Symbol, x, y);
-                                                    }
-                                                }                                            
-                                            }
-                                        }
-                                        for (int r = 0; r < white.Count; r++)
-                                        {                                 
-                                            if (white[r].GetType() == typeof(Rook))
-                                            {
-                                                if (white[r].X == 1 && white[r].Y == 1)
-                                                {
-                                                    if (white[0].CastleL(x, y, white, black, ChessPieces.Color.white) == true)
-                                                    {
-                                                        white[0].Box.Top = 25 + o * 94 + 10;
-                                                        white[0].Box.Left = 50 + i * 99 + 10;
-                                                        white[0].X = x;
-                                                        white[0].Y = y;
-                                                        castleW = 1;
-                                                        if (x % 2 != 0 && y % 2 == 0 || x % 2 == 0 && y % 2 != 0)
-                                                        {
-                                                            white[0].Box.BackColor = light;
-                                                        }
-                                                        else { white[0].Box.BackColor = dark; }
-
-                                                        white[r].Box.Top = 25 + o * 94 + 10;
-                                                        white[r].Box.Left = 50 + (i + 1) * 99 + 10;
-                                                        white[r].X = x + 1;
-                                                        white[r].Y = y;
-                                                        if (white[r].X % 2 != 0 && y % 2 == 0 || white[r].X % 2 == 0 && y % 2 != 0)
-                                                        {
-                                                            white[r].Box.BackColor = light;
-                                                        }
-                                                        else { white[r].Box.BackColor = dark; }
-                                                        turn = 2;
-                                                        counter++;
-                                                        label2.Text = "Ruch czarnych.";
-                                                        MoveList(white[dragging].Symbol, x, y);
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                    if (white[0].AllowedMoves(x, y, white, black, white[0].color,1) == true && ChessPieces.AllowedMovesKing(x, y, black, white, ChessPieces.Color.black) == true && ChessPieces.AllowedMoves(x, y, white) == true)
-                                    {
-                                        
-                                        pictureBox23.Top = 25 + o * 94 + 10;
-                                        pictureBox23.Left = 50 + i * 99 + 10;
-                                        white[0].X = x;
-                                        white[0].Y = y;
-                                        castleW = 1;
-                                        if (x % 2 != 0 && y % 2 == 0 || x % 2 == 0 && y % 2 != 0)
-                                        {
-                                            white[0].Box.BackColor = light;
-                                        }
-                                        else { white[0].Box.BackColor = dark; }
-                                        for (int f = 0; f < black.Count; f++)
-                                        {
-                                            if (black[f].X == x && black[f].Y == y)
-                                            {
-                                                black[f].Box.Visible = false;
-                                                black.RemoveAt(f);
-                                            }
-
-                                        }
-                                        turn = 2;
-                                        counter++;
-                                        label2.Text = "Ruch czarnych.";
-                                        MoveList(white[dragging].Symbol, x, y);
-                                    }
-
-                                }
-                                else
+                                for (int r = 0; r < white.Count; r++)
                                 {
-                                    if (white[dragging].AllowedMoves(x, y, white, black, ChessPieces.Color.white,0) == true && white[dragging].Block(x, y, white, black, ChessPieces.Color.white,0) == true)
+                                    if (white[r].Symbol == "Rh1")
                                     {
-                                        if (ChessPieces.AllowedMoves(x, y, white) == true)
+                                        if (white[0].Castle(x, y, white, black, fColor.white) == true)
                                         {
-                                            white[dragging].Box.Top = 25 + o * 94 + 10;
-                                            white[dragging].Box.Left = 50 + i * 99 + 10;
-                                            white[dragging].X = x;
-                                            white[dragging].Y = y;
-                                            if (white[dragging].GetType() == typeof(Pone) && white[dragging].Y == 8)                                            
-                                            {
-                                                Queen queen = new Queen(white[dragging].X, white[dragging].Y, ChessPieces.Color.white, white[dragging].Box);
-                                                queen.Box.Image = pictureBox1.Image;
-                                                white.RemoveAt(dragging);
-                                                white.Insert(dragging, queen);
-                                                
-                                            }
-                                            if (x % 2 != 0 && y % 2 == 0 || x % 2 == 0 && y % 2 != 0)
-                                            {
-                                                white[dragging].Box.BackColor = light;
-                                            }
-                                            else { white[dragging].Box.BackColor = dark; }
-                                            for (int f = 0; f < black.Count; f++)
-                                            {
-                                                if (black[f].X == x && black[f].Y == y)
-                                                {
-                                                    black[f].Box.Visible = false;
-                                                    black.RemoveAt(f);
-                                                }
+                                            Position(x, y, o, i, fColor.white, dragging);
+                                            Color_(x, y, fColor.white, dragging);
+                                            castleW = 1;
 
-                                            }
+                                            Position(x - 1, y, o, i - 1, fColor.white, r);
+                                            Color_(x - 1, y, fColor.white, r);
+                                            turn = 2;
+                                            counter++;
+                                            label2.Text = "Ruch czarnych.";
+                                            MoveList(white[dragging].Symbol, x, y);
+                                        }
+                                    }
+                                }
+                                for (int r = 0; r < white.Count; r++)
+                                {
+                                    if (white[r].Symbol == "Ra1")
+                                    {
+                                        if (white[0].CastleL(x, y, white, black, fColor.white) == true)
+                                        {
+                                            Position(x, y, o, i, fColor.white, dragging);
+                                            Color_(x, y, fColor.white, dragging);
+                                            castleW = 1;
+
+                                            Position(x + 1, y, o, i + 1, fColor.white, r);
+                                            Color_(x + 1, y, fColor.white, r);
                                             turn = 2;
                                             counter++;
                                             label2.Text = "Ruch czarnych.";
@@ -353,406 +305,152 @@ namespace ChessProject
                                     }
                                 }
                             }
+                            if (!ChessPieces.AllowedMoves(x, y, white))
+                            {
+                                return;
+                            }
+                            //warunki na ruch królem
+                            if (white[dragging].fType == fType.king)
+                            {
+                                if (!white[0].AllowedMoves(x, y, white, black, white[0].color, 1))
+                                {
+                                    return;
+                                }
+                                if (ChessPieces.AllowedMovesKing(x, y, black, white, fColor.black))
+                                {
+                                    Move_(x, y, o, i, fColor.white, 1, dragging);
+                                }
+                            }
+                            //wybrana figura nie jest królem
+                            if (!white[dragging].Block(x, y, white, black, fColor.white, 0))
+                            {
+                                return;
+                            }
+                            if (white[dragging].AllowedMoves(x, y, white, black, fColor.white, 0))
+                            {
+                                Move_(x, y, o, i, fColor.white, 0, dragging);
+                            }
                         }
-                        else
+                        //ruch czarnych
+                        if (turn == 2)
                         {
                             int c = dragging;
-                            King kingBlack = new King(black[0].X, black[0].Y, ChessPieces.Color.black, pictureBox2);
-                            if (ChessPieces.AllowedMovesKing(kingBlack.X, kingBlack.Y, white, black, ChessPieces.Color.white) == false)
+                            //jeśli król jest pod szachem
+                            if (ChessPieces.AllowedMovesKing(black[0].X, black[0].Y, white, black, fColor.white) == false)
                             {
-                                ChessPieces checkB = ChessPieces.TypeOfPieces(kingBlack.X, kingBlack.Y, white, black, ChessPieces.Color.white);
+                                ChessPieces checkB = ChessPieces.TypeOfPieces(black[0].X, black[0].Y, white, black, fColor.white);
                                 int a = checkB.X;
                                 int b = checkB.Y;
 
-                                if (kingBlack.Mat(a,b,checkB,white,black,ChessPieces.Color.black))
+                                if (black[0].Mat(a,b,checkB,white,black,fColor.black))
                                 {
                                     label1.Text = "MAT- zwycięstwo białych!";
                                 }
-
-                                if (black[c].GetType() == typeof(King))
+                                if (!ChessPieces.AllowedMoves(x, y, black))
                                 {
-                                    if (black[c].AllowedMoves(x, y, white, black, ChessPieces.Color.black,1) == true && ChessPieces.AllowedMovesKing(x, y, white, black, ChessPieces.Color.white) == true && ChessPieces.AllowedMoves(x, y, black) == true)
+                                    return;
+                                }
+                                //ruch królem
+                                if (black[c].fType == fType.king)
+                                {
+                                    if (!black[c].AllowedMoves(x, y, white, black, fColor.black, 1))
                                     {
-                                        if (ChessPieces.AllowedMoves(x, y, black) == true)
-                                        {
-                                            black[c].Box.Top = 25 + o * 94 + 10;
-                                            black[c].Box.Left = 50 + i * 99 + 10;
-                                            black[c].X = x;
-                                            black[c].Y = y;
-                                            castleB = 1;
-                                            if (x % 2 != 0 && y % 2 == 0 || x % 2 == 0 && y % 2 != 0)
-                                            {
-                                                black[c].Box.BackColor = light;
-                                            }
-                                            else { black[c].Box.BackColor = dark; }
-                                            for (int f = 0; f < white.Count; f++)
-                                            {
-                                                if (white[f].X == x && white[f].Y == y)
-                                                {                                                   
-                                                    white[f].Box.Visible = false;
-                                                    white.RemoveAt(f);
-                                                }
-
-                                            }
-                                            turn = 1;
-                                            label2.Text = "Ruch białych.";
-                                            MoveList(black[c].Symbol, x, y);
-                                        }
+                                        return;
+                                    }
+                                    if (ChessPieces.AllowedMovesKing(x, y, white, black, fColor.white))
+                                    {
+                                        Move_(x, y, o, i, fColor.black, 0, dragging);
+                                        castleB = 1;
                                     }
                                 }
-                                else
+                                //ruch inną figurą
+                                if (!black[c].AllowedMoves(x, y, white, black, fColor.black, 0))
                                 {
-                                    if (((x == a && y == b) == true || black[c].Cover(x, y, checkB, kingBlack, white, black) == true) && black[c].AllowedMoves(x, y, white, black, ChessPieces.Color.black,0) == true && black[c].Block(x, y, white, black, ChessPieces.Color.black, 1) == true)
-                                    {
-                                        black[c].Box.Top = 25 + o * 94 + 10;
-                                        black[c].Box.Left = 50 + i * 99 + 10;
-                                        black[c].X = x;
-                                        black[c].Y = y;
-                                        if (x % 2 != 0 && y % 2 == 0 || x % 2 == 0 && y % 2 != 0)
-                                        {
-                                            black[c].Box.BackColor = light;
-                                        }
-                                        else { black[c].Box.BackColor = dark; }
-                                        for (int f = 0; f < white.Count; f++)
-                                        {
-                                            if (white[f].X == x && white[f].Y == y)
-                                            {
-                                                white[f].Box.Visible = false;
-                                                white.RemoveAt(f);
-                                            }
-
-                                        }
-                                        turn = 1;
-                                        label2.Text = "Ruch białych.";
-                                        MoveList(black[c].Symbol, x, y);
-                                    }
+                                    return;
                                 }
+                                if (!black[c].Block(x, y, white, black, fColor.black, 1))
+                                {
+                                    return;
+                                }
+                                if (((x == a && y == b) == true || black[c].Cover(x, y, checkB, black[0], white, black) == true))
+                                {
+                                    Move_(x, y, o, i, fColor.black, 0, dragging);
 
-
-
+                                }
                             }
-                            else
+                            //roszada
+                            if (black[c].Symbol == "ke8" && castleB != 1)
                             {
-                                if (black[c].GetType() == typeof(King))
+                                for (int r = 0; r < black.Count; r++)
                                 {
-                                    if (black[c].X == 5 && black[c].Y == 8 && castleB != 1)
-                                    {                                     
-                                        for (int r = 0; r < black.Count; r++)
-                                        {
-                                            if (black[r].GetType() == typeof(Rook))
-                                            {
-                                                if (black[r].X == 8 && black[r].Y == 8)
-                                                {
-                                                    label7.Text = black[c].Castle(x, y, white, black, ChessPieces.Color.black).ToString();
-                                                    if (black[c].Castle(x, y, white, black, ChessPieces.Color.black) == true)
-                                                    {
-                                                        black[c].Box.Top = 25 + o * 94 + 10;
-                                                        black[c].Box.Left = 50 + i * 99 + 10;
-                                                        black[c].X = x;
-                                                        black[c].Y = y;
-                                                        castleB = 1;
-                                                        if (x % 2 != 0 && y % 2 == 0 || x % 2 == 0 && y % 2 != 0)
-                                                        {
-                                                            black[c].Box.BackColor = light;
-                                                        }
-                                                        else { black[c].Box.BackColor = dark; }
-
-                                                        black[r].Box.Top = 25 + o * 94 + 10;
-                                                        black[r].Box.Left = 50 + (i - 1) * 99 + 10;
-                                                        black[r].X = x - 1;
-                                                        black[r].Y = y;
-                                                        if (black[r].X % 2 != 0 && y % 2 == 0 || black[r].X % 2 == 0 && y % 2 != 0)
-                                                        {
-                                                            black[r].Box.BackColor = light;
-                                                        }
-                                                        else { black[r].Box.BackColor = dark; }
-                                                        turn = 1;
-                                                        label2.Text = "Ruch białych.";
-                                                        MoveList(black[c].Symbol, x, y);
-                                                    }
-                                                }
-                                            }
-                                        }
-                                        for (int r = 0; r < black.Count; r++)
-                                        {
-                                            if (black[r].GetType() == typeof(Rook))
-                                            {                                               
-                                                if (black[r].X == 1 && black[r].Y == 8)
-                                                {
-                                                    label6.Text = black[c].CastleL(x, y, white, black, ChessPieces.Color.black).ToString();
-                                                    if (black[c].CastleL(x, y, white, black, ChessPieces.Color.black) == true)
-                                                    {
-                                                        black[c].Box.Top = 25 + o * 94 + 10;
-                                                        black[c].Box.Left = 50 + i * 99 + 10;
-                                                        black[c].X = x;
-                                                        black[c].Y = y;
-                                                        castleB = 1;
-                                                        if (x % 2 != 0 && y % 2 == 0 || x % 2 == 0 && y % 2 != 0)
-                                                        {
-                                                            black[c].Box.BackColor = light;
-                                                        }
-                                                        else { black[c].Box.BackColor = dark; }
-
-                                                        black[r].Box.Top = 25 + o * 94 + 10;
-                                                        black[r].Box.Left = 50 + (i + 1) * 99 + 10;
-                                                        black[r].X = x + 1;
-                                                        black[r].Y = y;
-                                                        if (black[r].X % 2 != 0 && y % 2 == 0 || black[r].X % 2 == 0 && y % 2 != 0)
-                                                        {
-                                                            black[r].Box.BackColor = light;
-                                                        }
-                                                        else { black[r].Box.BackColor = dark; }
-                                                        turn = 1;
-                                                        label2.Text = "Ruch białych.";
-                                                        MoveList(black[c].Symbol, x, y);
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                    if (black[c].AllowedMoves(x, y, white, black, ChessPieces.Color.black,1) == true && ChessPieces.AllowedMovesKing(x, y, white, black, ChessPieces.Color.white) == true)
-                                    {                                    
-                                        if (ChessPieces.AllowedMoves(x, y, black) == true)
-                                        {
-                                            black[c].Box.Top = 25 + o * 94 + 10;
-                                            black[c].Box.Left = 50 + i * 99 + 10;
-                                            black[c].X = x;
-                                            black[c].Y = y;
-                                            castleB = 1;
-                                            if (x % 2 != 0 && y % 2 == 0 || x % 2 == 0 && y % 2 != 0)
-                                            {
-                                                black[c].Box.BackColor = light;
-                                            }
-                                            else { black[c].Box.BackColor = dark; }
-                                            for (int f = 0; f < white.Count; f++)
-                                            {
-                                                if (white[f].X == x && white[f].Y == y)
-                                                {
-                                                    white[f].Box.Visible = false;
-                                                    white.RemoveAt(f);
-                                                }
-
-                                            }
-                                            turn = 1;
-                                            label2.Text = "Ruch białych.";
-                                            MoveList(black[c].Symbol, x, y);
-                                        }
-                                    }
-                                }
-                                else
-                                {
-                                    if (black[c].AllowedMoves(x, y, white, black, ChessPieces.Color.black,0) == true && black[c].Block(x,y, white, black, ChessPieces.Color.black,0) == true)
+                                    if (black[r].Symbol == "rh8")
                                     {
-                                        if (ChessPieces.AllowedMoves(x, y, black) == true)
+                                        label7.Text = black[c].Castle(x, y, white, black, fColor.black).ToString();
+                                        if (black[c].Castle(x, y, white, black, fColor.black) == true)
                                         {
-                                            black[c].Box.Top = 25 + o * 94 + 10;
-                                            black[c].Box.Left = 50 + i * 99 + 10;
-                                            black[c].X = x;
-                                            black[c].Y = y;
-                                            if (black[c].GetType() == typeof(Pone) && black[c].Y == 1)
-                                            {
-                                                Queen queen = new Queen(black[c].X, black[c].Y, ChessPieces.Color.black, black[c].Box);
-                                                queen.Box.Image = pictureBox10.Image;
-                                                black.RemoveAt(c);
-                                                black.Insert(c, queen);
+                                            Position(x, y, o, i, fColor.black, dragging);
+                                            Color_(x, y, fColor.black, dragging);
+                                            castleB = 1;
 
-                                            }
-                                            if (x % 2 != 0 && y % 2 == 0 || x % 2 == 0 && y % 2 != 0)
-                                            {
-                                                black[c].Box.BackColor = light;
-                                            }
-                                            else { black[c].Box.BackColor = dark; }
-                                            for (int f = 0; f < white.Count; f++)
-                                            {
-                                                if (white[f].X == x && white[f].Y == y)
-                                                {
-                                                    white[f].Box.Visible = false;
-                                                    white.RemoveAt(f);
-                                                }
-
-                                            }
+                                            Position(x - 1, y, o, i - 1, fColor.black, r);
+                                            Color_(x - 1, y, fColor.black, r);
                                             turn = 1;
                                             label2.Text = "Ruch białych.";
                                             MoveList(black[c].Symbol, x, y);
                                         }
                                     }
                                 }
+                                for (int r = 0; r < black.Count; r++)
+                                {
+                                    if (black[r].Symbol == "ra8")
+                                    {
+                                        label6.Text = black[c].CastleL(x, y, white, black, fColor.black).ToString();
+                                        if (black[c].CastleL(x, y, white, black, fColor.black) == true)
+                                        {
+                                            Position(x, y, o, i, fColor.black, dragging);
+                                            Color_(x, y, fColor.black, dragging);
+                                            castleB = 1;
+
+                                            Position(x + 1, y, o, i + 1, fColor.black, r);
+                                            Color_(x + 1, y, fColor.black, r);
+                                            turn = 1;
+                                            label2.Text = "Ruch białych.";
+                                            MoveList(black[c].Symbol, x, y);
+                                        }
+                                    }
+                                }
+                            }
+                            if (!ChessPieces.AllowedMoves(x, y, black))
+                            {
+                                return;
+                            }
+                            //warunki na ruch królem
+                            if (black[c].fType == fType.king)
+                            {
+                                if (!black[c].AllowedMoves(x, y, white, black, fColor.black, 1))
+                                {
+                                    return;
+                                }                              
+                                if (ChessPieces.AllowedMovesKing(x, y, white, black, fColor.white))
+                                {
+                                    Move_(x, y, o, i, fColor.black, 1, dragging);
+                                    castleB = 1;
+                                    
+                                }
+                            }
+                            //wybrana figura nie jest królem
+                            if (!black[c].Block(x, y, white, black, fColor.black, 0))
+                            {
+                                return;
+                            }
+                            if (black[c].AllowedMoves(x, y, white, black, fColor.black, 0))
+                            {
+                                Move_(x, y, o, i, fColor.black, 0, dragging);
                             }
                         }
                     }
                 }
             }
-            //if (turn == 2)
-            //{
-            //    Random random = new Random();
-            //    //Random random1 = new Random();
-            //    //Random random2 = new Random();
-            //    while (turn != 1)
-            //    {
-            //        int c = random.Next(0, 16);
-            //        int x = random.Next(1, 9);
-            //        int y = random.Next(1, 9);
-            //        if (black[c].GetType() == typeof(King))
-            //        {
-            //            if (black[c].X == 5 && black[c].Y == 8 && castleB != 1)
-            //            {
-            //                for (int r = 0; r < black.Count; r++)
-            //                {
-            //                    if (black[r].GetType() == typeof(Rook))
-            //                    {
-            //                        if (black[r].X == 8 && black[r].Y == 8)
-            //                        {
-            //                            label7.Text = black[c].Castle(x, y, white, black, ChessPieces.Color.black).ToString();
-            //                            if (black[c].Castle(x, y, white, black, ChessPieces.Color.black) == true)
-            //                            {
-            //                                black[c].Box.Top = ChessPieces.Converty(y);
-            //                                black[c].Box.Left = ChessPieces.Convertx(x - 1);
-            //                                black[c].X = x;
-            //                                black[c].Y = y;
-            //                                castleB = 1;
-            //                                if (x % 2 != 0 && y % 2 == 0 || x % 2 == 0 && y % 2 != 0)
-            //                                {
-            //                                    black[c].Box.BackColor = light;
-            //                                }
-            //                                else { black[c].Box.BackColor = dark; }
-
-            //                                black[c].Box.Top = ChessPieces.Converty(y);
-            //                                black[c].Box.Left = ChessPieces.Convertx(x - 1);
-            //                                black[r].X = x - 1;
-            //                                black[r].Y = y;
-            //                                if (black[r].X % 2 != 0 && y % 2 == 0 || black[r].X % 2 == 0 && y % 2 != 0)
-            //                                {
-            //                                    black[r].Box.BackColor = light;
-            //                                }
-            //                                else { black[r].Box.BackColor = dark; }
-            //                                turn = 1;
-            //                                label2.Text = "Ruch białych.";
-            //                            }
-            //                        }
-            //                    }
-            //                }
-            //                for (int r = 0; r < black.Count; r++)
-            //                {
-            //                    if (black[r].GetType() == typeof(Rook))
-            //                    {
-            //                        if (black[r].X == 1 && black[r].Y == 8)
-            //                        {
-            //                            label6.Text = black[c].CastleL(x, y, white, black, ChessPieces.Color.black).ToString();
-            //                            if (black[c].CastleL(x, y, white, black, ChessPieces.Color.black) == true)
-            //                            {
-            //                                black[c].Box.Top = ChessPieces.Converty(y);
-            //                                black[c].Box.Left = ChessPieces.Convertx(x - 1);
-            //                                black[c].X = x;
-            //                                black[c].Y = y;
-            //                                castleB = 1;
-            //                                if (x % 2 != 0 && y % 2 == 0 || x % 2 == 0 && y % 2 != 0)
-            //                                {
-            //                                    black[c].Box.BackColor = light;
-            //                                }
-            //                                else { black[c].Box.BackColor = dark; }
-
-            //                                black[c].Box.Top = ChessPieces.Converty(y);
-            //                                black[c].Box.Left = ChessPieces.Convertx(x - 1);
-            //                                black[r].X = x + 1;
-            //                                black[r].Y = y;
-            //                                if (black[r].X % 2 != 0 && y % 2 == 0 || black[r].X % 2 == 0 && y % 2 != 0)
-            //                                {
-            //                                    black[r].Box.BackColor = light;
-            //                                }
-            //                                else { black[r].Box.BackColor = dark; }
-            //                                turn = 1;
-            //                                label2.Text = "Ruch białych.";
-            //                            }
-            //                        }
-            //                    }
-            //                }
-            //            }
-            //            if (black[c].AllowedMoves(x, y, white, black, ChessPieces.Color.black, 1) == true && ChessPieces.AllowedMovesKing(x, y, white, black, ChessPieces.Color.white) == true)
-            //            {
-            //                if (ChessPieces.AllowedMoves(x, y, black) == true)
-            //                {
-            //                    black[c].Box.Top = ChessPieces.Converty(y);
-            //                    black[c].Box.Left = ChessPieces.Convertx(x - 1);
-            //                    black[c].X = x;
-            //                    black[c].Y = y;
-            //                    castleB = 1;
-            //                    if (x % 2 != 0 && y % 2 == 0 || x % 2 == 0 && y % 2 != 0)
-            //                    {
-            //                        black[c].Box.BackColor = light;
-            //                    }
-            //                    else { black[c].Box.BackColor = dark; }
-            //                    for (int f = 0; f < white.Count; f++)
-            //                    {
-            //                        if (white[f].X == x && white[f].Y == y)
-            //                        {
-            //                            white[f].Box.Visible = false;
-            //                            white.RemoveAt(f);
-            //                        }
-
-            //                    }
-            //                    turn = 1;
-            //                    label2.Text = "Ruch białych.";
-            //                }
-            //            }
-            //        }
-            //        else
-            //        {
-            //            if (black[c].AllowedMoves(x, y, white, black, ChessPieces.Color.black, 0) == true && black[c].Block(x, y, white, black, ChessPieces.Color.black, 0) == true)
-            //            {
-            //                if (ChessPieces.AllowedMoves(x, y, black) == true)
-            //                {
-            //                    black[c].Box.Top = ChessPieces.Converty(y);
-            //                    black[c].Box.Left = ChessPieces.Convertx(x - 1);
-            //                    black[c].X = x;
-            //                    black[c].Y = y;
-            //                    if (black[c].GetType() == typeof(Pone) && black[c].Y == 1)
-            //                    {
-            //                        Queen queen = new Queen(black[c].X, black[c].Y, ChessPieces.Color.black, black[c].Box);
-            //                        queen.Box.Image = pictureBox10.Image;
-            //                        black.RemoveAt(c);
-            //                        black.Insert(c, queen);
-
-            //                    }
-            //                    if (x % 2 != 0 && y % 2 == 0 || x % 2 == 0 && y % 2 != 0)
-            //                    {
-            //                        black[c].Box.BackColor = light;
-            //                    }
-            //                    else { black[c].Box.BackColor = dark; }
-            //                    for (int f = 0; f < white.Count; f++)
-            //                    {
-            //                        if (white[f].X == x && white[f].Y == y)
-            //                        {
-            //                            white[f].Box.Visible = false;
-            //                            white.RemoveAt(f);
-            //                        }
-
-            //                    }
-            //                    turn = 1;
-            //                    label2.Text = "Ruch białych.";
-            //                }
-            //            }
-            //        }
-            //    }
-
-            //    //for (int i =0; i< black.Count; i++)
-            //    //{
-            //    //    if (black[i].GetType() == typeof(Pone) && black[i].X == 5)
-            //    //    {
-            //    //        int x = black[i].X;
-            //    //        int y = black[i].Y - 2 ;
-            //    //        black[i].Box.Top = ChessPieces.Converty(y);
-            //    //        black[i].Box.Left = ChessPieces.Convertx(x-1);
-            //    //        black[i].X = x;
-            //    //        black[i].Y = y;
-            //    //        if (x % 2 != 0 && y % 2 == 0 || x % 2 == 0 && y % 2 != 0)
-            //    //        {
-            //    //            black[i].Box.BackColor = light;
-            //    //        }
-            //    //        else { black[i].Box.BackColor = dark; }
-            //    //    }
-            //    //}
-
-            //}
         }
         private void PictureBox23_MouseDown(object sender, MouseEventArgs e)
         {
@@ -766,7 +464,6 @@ namespace ChessProject
             }
             pictureBox23.DoDragDrop(pictureBox23, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void PictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < white.Count; i++)
@@ -778,7 +475,6 @@ namespace ChessProject
             }
             pictureBox1.DoDragDrop(pictureBox1, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void PictureBox2_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < white.Count; i++)
@@ -790,7 +486,6 @@ namespace ChessProject
             }
             pictureBox1.DoDragDrop(pictureBox2, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void PictureBox3_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < white.Count; i++)
@@ -802,7 +497,6 @@ namespace ChessProject
             }
             pictureBox1.DoDragDrop(pictureBox3, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox4_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i =0; i < white.Count; i++)
@@ -814,7 +508,6 @@ namespace ChessProject
             }
             pictureBox4.DoDragDrop(pictureBox4, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox5_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < white.Count; i++)
@@ -826,7 +519,6 @@ namespace ChessProject
             }
             pictureBox5.DoDragDrop(pictureBox5, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox6_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < white.Count; i++)
@@ -838,7 +530,6 @@ namespace ChessProject
             }
             pictureBox6.DoDragDrop(pictureBox6, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox7_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < white.Count; i++)
@@ -850,7 +541,6 @@ namespace ChessProject
             }
             pictureBox7.DoDragDrop(pictureBox7, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox8_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < white.Count; i++)
@@ -862,7 +552,6 @@ namespace ChessProject
             }
             pictureBox8.DoDragDrop(pictureBox8, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox9_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < white.Count; i++)
@@ -874,7 +563,6 @@ namespace ChessProject
             }
             pictureBox9.DoDragDrop(pictureBox9, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox17_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < white.Count; i++)
@@ -886,7 +574,6 @@ namespace ChessProject
             }
             pictureBox17.DoDragDrop(pictureBox17, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox16_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < white.Count; i++)
@@ -898,7 +585,6 @@ namespace ChessProject
             }
             pictureBox16.DoDragDrop(pictureBox16, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox15_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < white.Count; i++)
@@ -910,7 +596,6 @@ namespace ChessProject
             }
             pictureBox15.DoDragDrop(pictureBox15, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox14_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < white.Count; i++)
@@ -922,7 +607,6 @@ namespace ChessProject
             }
             pictureBox14.DoDragDrop(pictureBox14, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox13_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < white.Count; i++)
@@ -934,7 +618,6 @@ namespace ChessProject
             }
             pictureBox13.DoDragDrop(pictureBox13, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox12_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < white.Count; i++)
@@ -946,7 +629,6 @@ namespace ChessProject
             }
             pictureBox12.DoDragDrop(pictureBox12, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox11_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < black.Count; i++)
@@ -958,7 +640,6 @@ namespace ChessProject
             }
             pictureBox11.DoDragDrop(pictureBox11, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox10_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < black.Count; i++)
@@ -970,7 +651,6 @@ namespace ChessProject
             }
             pictureBox10.DoDragDrop(pictureBox10, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox26_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < black.Count; i++)
@@ -982,7 +662,6 @@ namespace ChessProject
             }
             pictureBox26.DoDragDrop(pictureBox26, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox25_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < black.Count; i++)
@@ -994,7 +673,6 @@ namespace ChessProject
             }
             pictureBox25.DoDragDrop(pictureBox25, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox24_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < black.Count; i++)
@@ -1006,7 +684,6 @@ namespace ChessProject
             }
             pictureBox24.DoDragDrop(pictureBox24, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox22_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < black.Count; i++)
@@ -1018,7 +695,6 @@ namespace ChessProject
             }
             pictureBox22.DoDragDrop(pictureBox22, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox21_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < black.Count; i++)
@@ -1030,7 +706,6 @@ namespace ChessProject
             }
             pictureBox21.DoDragDrop(pictureBox21, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox20_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < black.Count; i++)
@@ -1042,7 +717,6 @@ namespace ChessProject
             }
             pictureBox20.DoDragDrop(pictureBox20, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox19_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < black.Count; i++)
@@ -1054,7 +728,6 @@ namespace ChessProject
             }
             pictureBox19.DoDragDrop(pictureBox19, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox18_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < black.Count; i++)
@@ -1066,7 +739,6 @@ namespace ChessProject
             }
             pictureBox18.DoDragDrop(pictureBox18, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox34_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < black.Count; i++)
@@ -1078,7 +750,6 @@ namespace ChessProject
             }
             pictureBox34.DoDragDrop(pictureBox34, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox33_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < black.Count; i++)
@@ -1090,7 +761,6 @@ namespace ChessProject
             }
             pictureBox33.DoDragDrop(pictureBox33, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox32_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < black.Count; i++)
@@ -1102,7 +772,6 @@ namespace ChessProject
             }
             pictureBox32.DoDragDrop(pictureBox32, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox31_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < black.Count; i++)
@@ -1114,7 +783,6 @@ namespace ChessProject
             }
             pictureBox31.DoDragDrop(pictureBox31, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox30_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < black.Count; i++)
@@ -1126,7 +794,6 @@ namespace ChessProject
             }
             pictureBox30.DoDragDrop(pictureBox30, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void pictureBox29_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < black.Count; i++)
@@ -1138,46 +805,45 @@ namespace ChessProject
             }
             pictureBox29.DoDragDrop(pictureBox29, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
         private void button1_MouseClick(object sender, MouseEventArgs e)
         {
             List<ChessPieces> chessPieces = new List<ChessPieces>()
             {
-                new King(5,1,ChessPieces.Color.white, pictureBox23),
-                new Queen(4,1,ChessPieces.Color.white, pictureBox1),
-                new Bishop(3,1,ChessPieces.Color.white,pictureBox2),
-                new Bishop(6,1,ChessPieces.Color.white,pictureBox3),
-                new Knight(2,1,ChessPieces.Color.white,pictureBox4),
-                new Knight(7,1,ChessPieces.Color.white,pictureBox5),
-                new Rook(8,1,ChessPieces.Color.white,pictureBox6),
-                new Rook(1,1,ChessPieces.Color.white,pictureBox7),
-                new Pone(1,2,ChessPieces.Color.white,pictureBox8),
-                new Pone(2,2,ChessPieces.Color.white,pictureBox9),
-                new Pone(3,2,ChessPieces.Color.white,pictureBox17),
-                new Pone(4,2,ChessPieces.Color.white,pictureBox16),
-                new Pone(5,2,ChessPieces.Color.white,pictureBox15),
-                new Pone(6,2,ChessPieces.Color.white,pictureBox14),
-                new Pone(7,2,ChessPieces.Color.white,pictureBox13),
-                new Pone(8,2,ChessPieces.Color.white,pictureBox12),
+                new ChessPieces(5,1, fType.king, fColor.white, pictureBox23),
+                new ChessPieces(4,1,fType.queen, fColor.white, pictureBox1),
+                new ChessPieces(3,1,fType.bishop,fColor.white,pictureBox2),
+                new ChessPieces(6,1,fType.bishop,fColor.white,pictureBox3),
+                new ChessPieces(2,1,fType.knight,fColor.white,pictureBox4),
+                new ChessPieces(7,1,fType.knight,fColor.white,pictureBox5),
+                new ChessPieces(8,1,fType.rook,fColor.white,pictureBox6),
+                new ChessPieces(1,1,fType.rook,fColor.white,pictureBox7),
+                new ChessPieces(1,2,fType.pone,fColor.white,pictureBox8),
+                new ChessPieces(2,2,fType.pone,fColor.white,pictureBox9),
+                new ChessPieces(3,2,fType.pone,fColor.white,pictureBox17),
+                new ChessPieces(4,2,fType.pone,fColor.white,pictureBox16),
+                new ChessPieces(5,2,fType.pone,fColor.white,pictureBox15),
+                new ChessPieces(6,2,fType.pone,fColor.white,pictureBox14),
+                new ChessPieces(7,2,fType.pone,fColor.white,pictureBox13),
+                new ChessPieces(8,2,fType.pone,fColor.white,pictureBox12),
             };
             List<ChessPieces> chessPiecesBlack = new List<ChessPieces>()
             {
-                new King(5,8,ChessPieces.Color.black,pictureBox11),
-                new Queen(4,8,ChessPieces.Color.black,pictureBox10),
-                new Bishop(3,8,ChessPieces.Color.black,pictureBox26),
-                new Bishop(6,8,ChessPieces.Color.black,pictureBox25),
-                new Knight(2,8,ChessPieces.Color.black,pictureBox24),
-                new Knight(7,8,ChessPieces.Color.black,pictureBox22),
-                new Rook(8,8,ChessPieces.Color.black,pictureBox21),
-                new Rook(1,8,ChessPieces.Color.black,pictureBox20),
-                new Pone(1,7,ChessPieces.Color.black,pictureBox19),
-                new Pone(2,7,ChessPieces.Color.black,pictureBox18),
-                new Pone(3,7,ChessPieces.Color.black,pictureBox34),
-                new Pone(4,7,ChessPieces.Color.black,pictureBox33),
-                new Pone(5,7,ChessPieces.Color.black,pictureBox32),
-                new Pone(6,7,ChessPieces.Color.black,pictureBox31),
-                new Pone(7,7,ChessPieces.Color.black,pictureBox30),
-                new Pone(8,7,ChessPieces.Color.black,pictureBox29),
+                new ChessPieces(5,8,fType.king,fColor.black,pictureBox11),
+                new ChessPieces(4,8,fType.queen,fColor.black,pictureBox10),
+                new ChessPieces(3,8,fType.bishop,fColor.black,pictureBox26),
+                new ChessPieces(6,8,fType.bishop,fColor.black,pictureBox25),
+                new ChessPieces(2,8,fType.knight,fColor.black,pictureBox24),
+                new ChessPieces(7,8,fType.knight,fColor.black,pictureBox22),
+                new ChessPieces(8,8,fType.rook,fColor.black,pictureBox21),
+                new ChessPieces(1,8,fType.rook,fColor.black,pictureBox20),
+                new ChessPieces(1,7,fType.pone,fColor.black,pictureBox19),
+                new ChessPieces(2,7,fType.pone,fColor.black,pictureBox18),
+                new ChessPieces(3,7,fType.pone,fColor.black,pictureBox34),
+                new ChessPieces(4,7,fType.pone,fColor.black,pictureBox33),
+                new ChessPieces(5,7,fType.pone,fColor.black,pictureBox32),
+                new ChessPieces(6,7,fType.pone,fColor.black,pictureBox31),
+                new ChessPieces(7,7,fType.pone,fColor.black,pictureBox30),
+                new ChessPieces(8,7,fType.pone,fColor.black,pictureBox29),
             };
 
             label2.Text = "Białe zaczynają.";
@@ -1212,7 +878,6 @@ namespace ChessProject
             label4.Text = moves[0];
             moves.Clear();
         }
-
         private void button2_MouseClick(object sender, MouseEventArgs e)
         {
             string path = @"C:\Users\Public\Chess\ZapisPartii.txt";
@@ -1229,16 +894,13 @@ namespace ChessProject
                 }   
             }
         }
-
         private void button3_MouseClick(object sender, MouseEventArgs e)
         {
             char chess_type = moves.Last()[0];
             char horizontal = moves.Last()[1];
             int vertical = moves.Last()[2];
             int y = ChessPieces.ConvertToNumber(horizontal);
-
         }
-
         private void pictureBox1_Move(object sender, EventArgs e)
         {
             for (int i = 0; i < white.Count; i++)
@@ -1248,7 +910,6 @@ namespace ChessProject
                     label1.Text = white[i].GetType().Name;
                 }
             }
-
         }
     }
 }

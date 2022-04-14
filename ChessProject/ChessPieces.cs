@@ -22,8 +22,96 @@ namespace ChessProject
             black,
             white
         }
+        public enum Type
+        {
+            king,
+            queen,
+            bishop,
+            knight,
+            rook,
+            pone
+        }       
         public Color color { get; set; }
-
+        public Type fType { get; set; }
+        public ChessPieces(int x, int y, Type type, Color fcolor, PictureBox box)
+        {
+            X = x;
+            Y = y;
+            fType = type;
+            color = fcolor;
+            Box = box;
+            Symbol = "";
+            if (type == Type.king)
+            {
+                if (fcolor == Color.white)
+                {
+                    Symbol.Append('K');
+                }
+                if (fcolor == Color.black)
+                {
+                    Symbol.Append('k');
+                }
+            }
+            if (type == Type.queen)
+            {
+                if (fcolor == Color.white)
+                {
+                    Symbol.Append('Q');
+                }
+                if (fcolor == Color.black)
+                {
+                    Symbol.Append('q');
+                }
+            }
+            if (type == Type.bishop)
+            {
+                if (fcolor == Color.white)
+                {
+                    Symbol.Append('B');
+                }
+                if (fcolor == Color.black)
+                {
+                    Symbol.Append('b');
+                }
+            }
+            if (type == Type.knight)
+            {
+                if (fcolor == Color.white)
+                {
+                    Symbol.Append('N');
+                }
+                if (fcolor == Color.black)
+                {
+                    Symbol.Append('n');
+                }
+            }
+            if (type == Type.rook)
+            {
+                if (fcolor == Color.white)
+                {
+                    Symbol.Append('R');
+                }
+                if (fcolor == Color.black)
+                {
+                    Symbol.Append('r');
+                }
+            }      
+            if (type == Type.pone)
+            {
+                if (fcolor == Color.white)
+                {
+                    Symbol.Append('P');
+                }
+                if (fcolor == Color.black)
+                {
+                    Symbol.Append('p');
+                }
+            }         
+            char v = (char)(y+48);
+            char h = (char)(x+96);
+            Symbol.Append(h);
+            Symbol.Append(v);     
+        }
         public static bool AllowedMoves(int x, int y, List<ChessPieces> pieces)
         {
             for (int i = 0; i < pieces.Count; i++)
@@ -36,7 +124,6 @@ namespace ChessProject
             }
             return true;
         }
-
         public bool AllowedMoves(int x, int y, List<ChessPieces> white, List<ChessPieces> black, Color name, int use)
         {
             if (x > 8)
@@ -55,7 +142,7 @@ namespace ChessProject
             {
                 return false;
             }
-            if (this.GetType() == typeof(Queen))
+            if (fType == Type.queen || fType == Type.rook)
             {
                 for (int i = 1; i < 9 - X; i++)
                 {
@@ -74,7 +161,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (white[a].GetType() == typeof(King))
+                                    if (white[a].fType == Type.king)
                                     {
 
                                     }
@@ -83,6 +170,7 @@ namespace ChessProject
                                         return false;
                                     }
                                 }
+
                             }
                             for (int b = 0; b < black.Count; b++)
                             {
@@ -95,7 +183,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (black[b].GetType() == typeof(King))
+                                    if (black[b].fType == Type.king)
                                     {
 
                                     }
@@ -104,9 +192,11 @@ namespace ChessProject
                                         return false;
                                     }
                                 }
+
                             }
                         }
                         return true;
+
                     }
                 }
                 for (int i = 1; i < 9 - Y; i++)
@@ -126,7 +216,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (white[a].GetType() == typeof(King))
+                                    if (white[a].fType == Type.king)
                                     {
 
                                     }
@@ -144,11 +234,10 @@ namespace ChessProject
                                     {
                                         return false;
                                     }
-
                                 }
                                 else
                                 {
-                                    if (black[b].GetType() == typeof(King))
+                                    if (black[b].fType == Type.king)
                                     {
 
                                     }
@@ -157,10 +246,8 @@ namespace ChessProject
                                         return false;
                                     }
                                 }
-
                             }
                         }
-
                         return true;
                     }
                 }
@@ -181,7 +268,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (white[a].GetType() == typeof(King))
+                                    if (white[a].fType == Type.king)
                                     {
 
                                     }
@@ -203,7 +290,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (black[b].GetType() == typeof(King))
+                                    if (black[b].fType == Type.king)
                                     {
 
                                     }
@@ -236,7 +323,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (white[a].GetType() == typeof(King))
+                                    if (white[a].fType == Type.king)
                                     {
 
                                     }
@@ -258,7 +345,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (black[b].GetType() == typeof(King))
+                                    if (black[b].fType == Type.king)
                                     {
 
                                     }
@@ -274,6 +361,13 @@ namespace ChessProject
                         return true;
                     }
                 }
+                if (fType == Type.rook)
+                {
+                    return false;
+                }
+            }
+            if (fType == Type.queen || fType == Type.bishop)
+            {
                 for (int i = 1; i < 9; i++)
                 {
                     if (x == X + i && y == Y + i)
@@ -291,7 +385,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (white[a].GetType() == typeof(King))
+                                    if (white[a].fType == Type.king)
                                     {
 
                                     }
@@ -313,7 +407,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (black[b].GetType() == typeof(King))
+                                    if (black[b].fType == Type.king)
                                     {
 
                                     }
@@ -346,7 +440,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (white[a].GetType() == typeof(King))
+                                    if (white[a].fType == Type.king)
                                     {
 
                                     }
@@ -368,7 +462,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (black[b].GetType() == typeof(King))
+                                    if (black[b].fType == Type.king)
                                     {
 
                                     }
@@ -401,7 +495,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (white[a].GetType() == typeof(King))
+                                    if (white[a].fType == Type.king)
                                     {
 
                                     }
@@ -423,7 +517,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (black[b].GetType() == typeof(King))
+                                    if (black[b].fType == Type.king)
                                     {
 
                                     }
@@ -456,7 +550,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (white[a].GetType() == typeof(King))
+                                    if (white[a].fType == Type.king)
                                     {
 
                                     }
@@ -478,7 +572,7 @@ namespace ChessProject
                                 }
                                 else
                                 {
-                                    if (black[b].GetType() == typeof(King))
+                                    if (black[b].fType == Type.king)
                                     {
 
                                     }
@@ -494,467 +588,9 @@ namespace ChessProject
                         return true;
                     }
                 }
-
                 return false;
             }
-
-            else if (this.GetType() == typeof(Rook))
-            {
-                for (int i = 1; i < 9 - X; i++)
-                {
-
-                    if (x == X + i && y == Y)
-                    {
-                        for (int o = 1; o < x - X; o++)
-                        {
-
-                            for (int a = 0; a < white.Count; a++)
-                            {
-                                if (name == Color.white)
-                                {
-                                    if (white[a].X == X + o && white[a].Y == Y)
-                                    {
-                                        return false;
-                                    }
-                                }
-                                else
-                                {
-                                    if (white[a].GetType() == typeof(King))
-                                    {
-
-                                    }
-                                    else if (white[a].X == X + o && white[a].Y == Y)
-                                    {
-                                        return false;
-                                    }
-                                }
-
-                            }
-                            for (int b = 0; b < black.Count; b++)
-                            {
-                                if (name == Color.black)
-                                {
-                                    if (black[b].X == X + o && black[b].Y == Y)
-                                    {
-                                        return false;
-                                    }
-                                }
-                                else
-                                {
-                                    if (black[b].GetType() == typeof(King))
-                                    {
-
-                                    }
-                                    else if (black[b].X == X + o && black[b].Y == Y)
-                                    {
-                                        return false;
-                                    }
-                                }
-
-                            }
-                        }
-
-                        return true;
-
-                    }
-
-                }
-                for (int i = 1; i < 9 - Y; i++)
-                {
-                    if (x == X && y == Y + i)
-                    {
-                        for (int o = 1; o < y - Y; o++)
-                        {
-                            for (int a = 0; a < white.Count; a++)
-                            {
-                                if (name == Color.white)
-                                {
-                                    if (white[a].X == X && white[a].Y == Y + o)
-                                    {
-                                        return false;
-                                    }
-                                }
-                                else
-                                {
-                                    if (white[a].GetType() == typeof(King))
-                                    {
-
-                                    }
-                                    else if (white[a].X == X && white[a].Y == Y + o)
-                                    {
-                                        return false;
-                                    }
-                                }
-                            }
-                            for (int b = 0; b < black.Count; b++)
-                            {
-                                if (name == Color.black)
-                                {
-                                    if (black[b].X == X && black[b].Y == Y + o)
-                                    {
-                                        return false;
-                                    }
-
-                                }
-                                else
-                                {
-                                    if (black[b].GetType() == typeof(King))
-                                    {
-
-                                    }
-                                    else if (black[b].X == X && black[b].Y == Y + o)
-                                    {
-                                        return false;
-                                    }
-                                }
-
-                            }
-                        }
-
-                        return true;
-                    }
-                }
-                for (int i = 1; i < X; i++)
-                {
-                    if (x == X - i && y == Y)
-                    {
-                        for (int o = 1; o < X - x; o++)
-                        {
-                            for (int a = 0; a < white.Count; a++)
-                            {
-                                if (name == Color.white)
-                                {
-                                    if (white[a].X == X - o && white[a].Y == Y)
-                                    {
-                                        return false;
-                                    }
-                                }
-                                else
-                                {
-                                    if (white[a].GetType() == typeof(King))
-                                    {
-
-                                    }
-                                    else if (white[a].X == X - o && white[a].Y == Y)
-                                    {
-                                        return false;
-                                    }
-                                }
-
-                            }
-                            for (int b = 0; b < black.Count; b++)
-                            {
-                                if (name == Color.black)
-                                {
-                                    if (black[b].X == X - o && black[b].Y == Y)
-                                    {
-                                        return false;
-                                    }
-                                }
-                                else
-                                {
-                                    if (black[b].GetType() == typeof(King))
-                                    {
-
-                                    }
-                                    else if (black[b].X == X - o && black[b].Y == Y)
-                                    {
-                                        return false;
-                                    }
-                                }
-
-                            }
-                        }
-
-                        return true;
-                    }
-                }
-                for (int i = 1; i < Y; i++)
-                {
-                    if (x == X && y == Y - i)
-                    {
-                        for (int o = 1; o < Y - y; o++)
-                        {
-                            for (int a = 0; a < white.Count; a++)
-                            {
-                                if (name == Color.white)
-                                {
-                                    if (white[a].X == X && white[a].Y == Y - o)
-                                    {
-                                        return false;
-                                    }
-                                }
-                                else
-                                {
-                                    if (white[a].GetType() == typeof(King))
-                                    {
-
-                                    }
-                                    else if (white[a].X == X && white[a].Y == Y - o)
-                                    {
-                                        return false;
-                                    }
-                                }
-
-                            }
-                            for (int b = 0; b < black.Count; b++)
-                            {
-                                if (name == Color.black)
-                                {
-                                    if (black[b].X == X && black[b].Y == Y - o)
-                                    {
-                                        return false;
-                                    }
-                                }
-                                else
-                                {
-                                    if (black[b].GetType() == typeof(King))
-                                    {
-
-                                    }
-                                    else if (black[b].X == X && black[b].Y == Y - o)
-                                    {
-                                        return false;
-                                    }
-                                }
-
-                            }
-                        }
-
-                        return true;
-                    }
-                }
-
-
-                return false;
-            }
-            else if (this.GetType() == typeof(Bishop))
-            {
-
-                for (int i = 1; i < 9; i++)
-                {
-                    if (x == X + i && y == Y + i)
-                    {
-                        for (int o = 1; o < x - X; o++)
-                        {
-                            for (int a = 0; a < white.Count; a++)
-                            {
-                                if (name == Color.white)
-                                {
-                                    if (white[a].X == X + o && white[a].Y == Y + o)
-                                    {
-                                        return false;
-                                    }
-                                }
-                                else
-                                {
-                                    if (white[a].GetType() == typeof(King))
-                                    {
-
-                                    }
-                                    else if (white[a].X == X + o && white[a].Y == Y + o)
-                                    {
-                                        return false;
-                                    }
-                                }
-
-                            }
-                            for (int b = 0; b < black.Count; b++)
-                            {
-                                if (name == Color.black)
-                                {
-                                    if (black[b].X == X + o && black[b].Y == Y + o)
-                                    {
-                                        return false;
-                                    }
-                                }
-                                else
-                                {
-                                    if (black[b].GetType() == typeof(King))
-                                    {
-
-                                    }
-                                    else if (black[b].X == X + o && black[b].Y == Y + o)
-                                    {
-                                        return false;
-                                    }
-                                }
-
-                            }
-                        }
-
-                        return true;
-                    }
-                }
-                for (int i = 1; i < 9; i++)
-                {
-                    if (x == X - i && y == Y - i)
-                    {
-                        for (int o = 1; o < X - x; o++)
-                        {
-                            for (int a = 0; a < white.Count; a++)
-                            {
-                                if (name == Color.white)
-                                {
-                                    if (white[a].X == X - o && white[a].Y == Y - o)
-                                    {
-                                        return false;
-                                    }
-                                }
-                                else
-                                {
-                                    if (white[a].GetType() == typeof(King))
-                                    {
-
-                                    }
-                                    else if (white[a].X == X - o && white[a].Y == Y - o)
-                                    {
-                                        return false;
-                                    }
-                                }
-
-                            }
-                            for (int b = 0; b < black.Count; b++)
-                            {
-                                if (name == Color.black)
-                                {
-                                    if (black[b].X == X - o && black[b].Y == Y - o)
-                                    {
-                                        return false;
-                                    }
-                                }
-                                else
-                                {
-                                    if (black[b].GetType() == typeof(King))
-                                    {
-
-                                    }
-                                    else if (black[b].X == X - o && black[b].Y == Y - o)
-                                    {
-                                        return false;
-                                    }
-                                }
-
-                            }
-                        }
-
-                        return true;
-                    }
-                }
-                for (int i = 1; i < 9; i++)
-                {
-                    if (x == X + i && y == Y - i)
-                    {
-                        for (int o = 1; o < x - X; o++)
-                        {
-                            for (int a = 0; a < white.Count; a++)
-                            {
-                                if (name == Color.white)
-                                {
-                                    if (white[a].X == X + o && white[a].Y == Y - o)
-                                    {
-                                        return false;
-                                    }
-                                }
-                                else
-                                {
-                                    if (white[a].GetType() == typeof(King))
-                                    {
-
-                                    }
-                                    else if (white[a].X == X + o && white[a].Y == Y - o)
-                                    {
-                                        return false;
-                                    }
-                                }
-
-                            }
-                            for (int b = 0; b < black.Count; b++)
-                            {
-                                if (name == Color.black)
-                                {
-                                    if (black[b].X == X + o && black[b].Y == Y - o)
-                                    {
-                                        return false;
-                                    }
-                                }
-                                else
-                                {
-                                    if (black[b].GetType() == typeof(King))
-                                    {
-
-                                    }
-                                    else if (black[b].X == X + o && black[b].Y == Y - o)
-                                    {
-                                        return false;
-                                    }
-                                }
-
-                            }
-                        }
-
-                        return true;
-                    }
-                }
-                for (int i = 1; i < 9; i++)
-                {
-                    if (x == X - i && y == Y + i)
-                    {
-                        for (int o = 1; o < X - x; o++)
-                        {
-                            for (int a = 0; a < white.Count; a++)
-                            {
-                                if (name == Color.white)
-                                {
-                                    if (white[a].X == X - o && white[a].Y == Y + o)
-                                    {
-                                        return false;
-                                    }
-                                }
-                                else
-                                {
-                                    if (white[a].GetType() == typeof(King))
-                                    {
-
-                                    }
-                                    else if (white[a].X == X - o && white[a].Y == Y + o)
-                                    {
-                                        return false;
-                                    }
-                                }
-
-                            }
-                            for (int b = 0; b < black.Count; b++)
-                            {
-                                if (name == Color.black)
-                                {
-                                    if (black[b].X == X - o && black[b].Y == Y + o)
-                                    {
-                                        return false;
-                                    }
-                                }
-                                else
-                                {
-                                    if (black[b].GetType() == typeof(King))
-                                    {
-
-                                    }
-                                    else if (black[b].X == X - o && black[b].Y == Y + o)
-                                    {
-                                        return false;
-                                    }
-                                }
-
-                            }
-                        }
-
-                        return true;
-                    }
-                }
-
-                return false;
-            }
-            else if (this.GetType() == typeof(King))
+            if (fType == Type.king)
             {
 
                 if ((x == X || x == X + 1 || x == X - 1) && (y == Y || y == Y + 1 || y == Y - 1))
@@ -966,7 +602,7 @@ namespace ChessProject
                     return false;
                 }
             }
-            else if (this.GetType() == typeof(Knight))
+            if (fType == Type.knight)
             {
                 if (x == X + 2 && y == Y + 1)
                 {
@@ -1005,10 +641,10 @@ namespace ChessProject
                     return false;
                 }
             }
-            else if (this.GetType() == typeof(Pone))
+            if (fType == Type.pone)
             {
                 if (use == 0)
-                {
+                {   
                     if (name == Color.white)
                     {
                         if (x == X && y == Y + 1)
@@ -1153,13 +789,9 @@ namespace ChessProject
                 }
                 return false;
             }
-            else
-            {
-                return false;
+            return false;
 
-            }
         }
-
         public static bool AllowedMovesKing(int x, int y, List<ChessPieces> pieces, List<ChessPieces> pieces2, Color name)
         {
             if (name == Color.white)
@@ -1188,7 +820,6 @@ namespace ChessProject
 
             return true;
         }
-
         public bool Castle(int x, int y, List<ChessPieces> white, List<ChessPieces> black, Color name)
         {
             if ((x != 7 && y != 1) || (x != 7 && y != 8))
@@ -1310,7 +941,6 @@ namespace ChessProject
             }
             return false;
         }
-
         public bool Block(int x, int y, List<ChessPieces> white, List<ChessPieces> black, Color name, int use)
         {
             if (name == Color.white && use != 1)
@@ -1466,7 +1096,6 @@ namespace ChessProject
             }
             return true;
         }
-
         public bool Cover(int x, int y, ChessPieces name, ChessPieces king, List<ChessPieces> white, List<ChessPieces> black)
         {
             if (name.color == Color.black)
@@ -1590,7 +1219,6 @@ namespace ChessProject
             }
             return false;
         }
-
         public static ChessPieces TypeOfPieces(int x, int y, List<ChessPieces> pieces, List<ChessPieces> pieces2, Color name)
         {
             if (name == Color.black)
@@ -1619,12 +1247,10 @@ namespace ChessProject
             }
             return pieces[1];
         }
-
         //public static bool Sudoku(int x, int y, List<ChessPieces> white, List<ChessPieces> black, Color name)
         //{
         //    return false;
         //}
-
         public bool Mat(int a, int b, ChessPieces check, List<ChessPieces> white, List<ChessPieces> black, Color name)
         {
             if (name == Color.white)
@@ -1637,7 +1263,7 @@ namespace ChessProject
                         {
                             for (int l = 1; l < 9; l++)
                             {
-                                if (white[i].GetType() == typeof(King))
+                                if (white[i].fType == Type.king)
                                 {
                                     if (white[i].AllowedMoves(o, l, white, black, white[0].color, 1) == true && ChessPieces.AllowedMovesKing(o, l, black, white, ChessPieces.Color.black) == true && ChessPieces.AllowedMoves(o, l, white) == true)
                                     {
@@ -1667,7 +1293,7 @@ namespace ChessProject
                         {
                             for (int l = 1; l < 9; l++)
                             {
-                                if (black[i].GetType() == typeof(King))
+                                if (black[i].fType == Type.king)
                                 {
                                     if (black[i].AllowedMoves(o, l, white, black, ChessPieces.Color.black, 1) == true && ChessPieces.AllowedMovesKing(o, l, white, black, ChessPieces.Color.white) == true)
                                     {
