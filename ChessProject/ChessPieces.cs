@@ -40,77 +40,78 @@ namespace ChessProject
             fType = type;
             color = fcolor;
             Box = box;
-            Symbol = "";
+            var str = new StringBuilder();
             if (type == Type.king)
             {
                 if (fcolor == Color.white)
                 {
-                    Symbol.Append('K');
+                    str.Append('K');
                 }
                 if (fcolor == Color.black)
                 {
-                    Symbol.Append('k');
+                    str.Append('k');
                 }
             }
             if (type == Type.queen)
             {
                 if (fcolor == Color.white)
                 {
-                    Symbol.Append('Q');
+                    str.Append('Q');
                 }
                 if (fcolor == Color.black)
                 {
-                    Symbol.Append('q');
+                    str.Append('q');
                 }
             }
             if (type == Type.bishop)
             {
                 if (fcolor == Color.white)
                 {
-                    Symbol.Append('B');
+                    str.Append('B');
                 }
                 if (fcolor == Color.black)
                 {
-                    Symbol.Append('b');
+                    str.Append('b');
                 }
             }
             if (type == Type.knight)
             {
                 if (fcolor == Color.white)
                 {
-                    Symbol.Append('N');
+                    str.Append('N');
                 }
                 if (fcolor == Color.black)
                 {
-                    Symbol.Append('n');
+                    str.Append('n');
                 }
             }
             if (type == Type.rook)
             {
                 if (fcolor == Color.white)
                 {
-                    Symbol.Append('R');
+                    str.Append('R');
                 }
                 if (fcolor == Color.black)
                 {
-                    Symbol.Append('r');
+                    str.Append('r');
                 }
-            }      
+            }
             if (type == Type.pone)
             {
                 if (fcolor == Color.white)
                 {
-                    Symbol.Append('P');
+                    str.Append('P');
                 }
                 if (fcolor == Color.black)
                 {
-                    Symbol.Append('p');
+                    str.Append('p');
                 }
-            }         
-            char v = (char)(y+48);
-            char h = (char)(x+96);
-            Symbol.Append(h);
-            Symbol.Append(v);     
+            }
+            char v = (char)(y + 48);
+            char h = (char)(x + 96);
+            str.Append(h);
+            str.Append(v);
+            Symbol = str.ToString();
         }
         public static bool AllowedMoves(int x, int y, List<ChessPieces> pieces)
         {
