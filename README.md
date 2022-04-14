@@ -1,6 +1,6 @@
 # Chess
 
-W klasie ChessPieces znaujdą się wszystkie metody odpowiedzialne za sprawdzanie czy dany ruch jest legalny.
+W klasie ChessPieces znajdują się wszystkie metody odpowiedzialne za sprawdzanie czy dany ruch jest legalny.
 
 Metoda 'public bool AllowedMoves(int x, int y, List<ChessPieces> white, List<ChessPieces> black, Color name, int use)'
 Zwraca wszystkie legalne ruchy daną figurą (pomijane są szachy, związania itp.)
