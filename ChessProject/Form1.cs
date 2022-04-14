@@ -195,15 +195,15 @@ namespace ChessProject
         {
             if (color == fColor.white)
             {
-                white[dragging].Box.Top = 25 + o * 94 + 10;
-                white[dragging].Box.Left = 50 + i * 99 + 10;
+                white[dragging].Box.Top = 25 + o * 72;
+                white[dragging].Box.Left = 50 + i * 72;
                 white[dragging].X = x;
                 white[dragging].Y = y;
             }
             if (color == fColor.black)
             {
-                black[dragging].Box.Top = 25 + o * 94 + 10;
-                black[dragging].Box.Left = 50 + i * 99 + 10;
+                black[dragging].Box.Top = 25 + o * 72;
+                black[dragging].Box.Left = 50 + i * 72;
                 black[dragging].X = x;
                 black[dragging].Y = y;
             }

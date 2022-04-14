@@ -1286,17 +1286,7 @@ namespace ChessProject
             this.pictureBox11.TabIndex = 187;
             this.pictureBox11.TabStop = false;
             this.pictureBox11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox11_MouseDown);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(852, 659);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(138, 46);
-            this.button3.TabIndex = 155;
-            this.button3.Text = "Undo";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button3_MouseClick);
-            // 
+            //
             // Form1
             // 
             this.AllowDrop = true;
