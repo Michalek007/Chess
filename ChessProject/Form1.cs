@@ -80,7 +80,7 @@ namespace ChessProject
             moves = list_moves;
             for (int i = 0; i < white.Count; i++)
             {
-                white[i].Box.Left = ChessPieces.Convertx(white[i].X - 1);
+                white[i].Box.Left = ChessPieces.Convertx(white[i].X -1);
                 white[i].Box.Top = ChessPieces.Converty(white[i].Y);
                 if (white[i].X % 2 != 0 && white[i].Y % 2 == 0 || white[i].X % 2 == 0 && white[i].Y % 2 != 0)
                 {
@@ -90,7 +90,7 @@ namespace ChessProject
             }
             for (int i = 0; i < black.Count; i++)
             {
-                black[i].Box.Left = ChessPieces.Convertx(black[i].X - 1);
+                black[i].Box.Left = ChessPieces.Convertx(black[i].X -1);
                 black[i].Box.Top = ChessPieces.Converty(black[i].Y);
                 if (black[i].X % 2 != 0 && black[i].Y % 2 == 0 || black[i].X % 2 == 0 && black[i].Y % 2 != 0)
                 {
@@ -98,6 +98,7 @@ namespace ChessProject
                 }
                 else { black[i].Box.BackColor = dark; }
             }
+
         }
 
         private void PictureBox23_DragEnter(object sender, DragEventArgs e)
@@ -214,11 +215,11 @@ namespace ChessProject
             {
                 for (int o = 0; o < 8; o++)
                 {
-                    if (Cursor.Position.X > 50 + i * 99 && Cursor.Position.X < 50 + 93 + i * 99 && Cursor.Position.Y > 50 + o * 94 && Cursor.Position.Y < 50 + 88 + o * 94)
+                    if (Cursor.Position.X >= 50 + i * 72 && Cursor.Position.X <= 50 + 66 + i * 72 && Cursor.Position.Y >= 40 + o * 72 && Cursor.Position.Y <= 40 + 66 + o * 72)
                     {
-                        //konwersja współrzędnych fizycznych na współrzędne szachowe 
-                        int x = ChessPieces.ConvertX(50 + i * 99 + 10);
-                        int y = ChessPieces.ConvertY(25 + o * 94 + 10);
+                        //konwersja współrzędnych fizycznych na współrzędne szachowe
+                        int x = ChessPieces.ConvertX(50 + i * 72);
+                        int y = ChessPieces.ConvertY(25 + o * 72);
                         //ruch białych
                         if (turn == 1)
                         {
@@ -875,6 +876,8 @@ namespace ChessProject
             }
             counter = 0;
             turn = 1;
+            castleB = 0;
+            castleW = 0;
             label4.Text = moves[0];
             moves.Clear();
         }
