@@ -29,3 +29,6 @@ Dla figury innej niż król:
 1) jeśli król jest szachowany to metody 'public bool AllowedMoves(...)' 'public static bool AllowedMoves(...)' 'Block' 'Cover' muszą mieć wartość true -> wtedy dana figura może się ruszyć na pozycję (x,y)
 
 2) jeśli król nie jest szachowany to metody 'public bool AllowedMoves(...)' 'public static bool AllowedMoves(...)' 'Block' muszą mieć wartość true -> wtedy dana figura może się ruszyć na pozycję (x,y)
+
+
+![ChessProject](https://user-images.githubusercontent.com/101892382/173884437-9594d030-088b-495f-a1ae-8612e90fe05a.png)
