@@ -1320,7 +1320,6 @@ namespace ChessProject
 
             return true;
 
-
         }
 
         public static int ConvertX(int x)
@@ -1342,38 +1341,7 @@ namespace ChessProject
             {
                 if (y > 25 + i * 94 && y < 25 + 88 + i * 94)
                 {
-                    if (i + 1 == 1)
-                    {
-                        return 8;
-                    }
-                    else if (i + 1 == 2)
-                    {
-                        return 7;
-                    }
-                    else if (i + 1 == 3)
-                    {
-                        return 6;
-                    }
-                    else if (i + 1 == 4)
-                    {
-                        return 5;
-                    }
-                    else if (i + 1 == 5)
-                    {
-                        return 4;
-                    }
-                    else if (i + 1 == 6)
-                    {
-                        return 3;
-                    }
-                    else if (i + 1 == 7)
-                    {
-                        return 2;
-                    }
-                    else if (i + 1 == 8)
-                    {
-                        return 1;
-                    }
+                    return 9 - i - 1;
                 }
             }
             return 1;
@@ -1387,112 +1355,19 @@ namespace ChessProject
         }
         public static int Converty(int y)
         {
-            if (y == 1)
-            {
-                y = 8;
-            }
-            else if (y == 2)
-            {
-                y = 7;
-            }
-            else if (y == 3)
-            {
-                y = 6;
-            }
-            else if (y == 4)
-            {
-                y = 5;
-            }
-            else if (y == 5)
-            {
-                y = 4;
-            }
-            else if (y == 6)
-            {
-                y = 3;
-            }
-            else if (y == 7)
-            {
-                y = 2;
-            }
-            else if (y == 8)
-            {
-                y = 1;
-            }
+            y = 9 - y;
             return 25 + (y - 1) * 94 + 10;
 
         }
 
         public static string ConvertToLetter(int x)
         {
-            if (x == 1)
-            {
-                return "A";
-            }
-            else if (x == 2)
-            {
-                return "B";
-            }
-            else if (x == 3)
-            {
-                return "C";
-            }
-            else if (x == 4)
-            {
-                return "D";
-            }
-            else if (x == 5)
-            {
-                return "E";
-            }
-            else if (x == 6)
-            {
-                return "F";
-            }
-            else if (x == 7)
-            {
-                return "G";
-            }
-            else
-            {
-                return "H";
-            }
+            return Convert.ToChar(x + 64).ToString();
         }
         public static int ConvertToNumber(char a)
         {
-            if (a == 'A')
-            {
-                return 1;
-            }
-            else if (a == 'B')
-            {
-                return 2;
-            }
-            else if (a == 'C')
-            {
-                return 3;
-            }
-            else if (a == 'D')
-            {
-                return 4;
-            }
-            else if (a == 'E')
-            {
-                return 5;
-            }
-            else if (a == 'F')
-            {
-                return 6;
-            }
-            else if (a == 'G')
-            {
-                return 7;
-            }
-            else if (a == 'H')
-            {
-                return 8;
-            }
-            return 1;
+            int result = a - 64;
+            return result;
         }
     }
 }

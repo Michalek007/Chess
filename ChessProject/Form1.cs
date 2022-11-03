@@ -880,7 +880,7 @@ namespace ChessProject
         }
         private void button2_MouseClick(object sender, MouseEventArgs e)
         {
-            string path = @"C:\Users\Public\Chess\ZapisPartii.txt";
+            string path = @"C:\Users\Public\ZapisPartii.txt";
             if (File.Exists(path))
             {
                 File.Delete(path);
